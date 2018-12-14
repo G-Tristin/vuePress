@@ -1,23 +1,20 @@
 module.exports = {
-  title: 'welcome to myGlobs!',
-  description: 'Just playing around',
-  themeConfig:{
-    nav: [
-      { 
-        text: 'Home',
-        items:[
-          {'text':'HTML','link':'/home/html5'},
-          {'text':'CSS','link':'/home/css'},
-          {'text':'Javascript','link':'/home/javascript'}
-        ] 
-      },
-      { text: 'Guide', link: '/guide/' },
-      { text: 'External', link: 'https://google.com' },
-    ],
-    sidebar:[
-      '/blog/css',
-      '/blog/html',
-      '/blog/javascript'
-    ]
-  }
+	title: 'welcome myFriend!',
+	description: '做想做的事，爱想爱的人',
+	themeConfig: {
+		nav: [
+			{
+				text: '前端',
+				items: [
+					{ text: 'HTML', link: '/home/html5' },
+					{ text: 'CSS', link: '/home/css' },
+					{ text: 'Javascript', link: '/home/javascript' }
+				]
+			},
+			{ text: 'node', link: '/node/' },
+			{ text: 'ES6', link: '/ES6/' },
+			{ text: 'gitHub', link: 'https://github.com/G-Tristin/vue' }
+		],
+		sidebar: ['/blog/css', '/blog/html', '/blog/javascript']
+	}
 }
