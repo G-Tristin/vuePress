@@ -1,5 +1,5 @@
 module.exports = {
-	title: 'welcome myFriend!',
+	title: '修罗之路',
 	description: '做想做的事，爱想爱的人',
 	themeConfig: {
 		nav: [
@@ -11,10 +11,15 @@ module.exports = {
 					{ text: 'Javascript', link: '/home/javascript' }
 				]
 			},
+			{ text: 'Vue', link: '/vue/' },
 			{ text: 'node', link: '/node/' },
 			{ text: 'ES6', link: '/ES6/' },
 			{ text: 'gitHub', link: 'https://github.com/G-Tristin/vue' }
 		],
-		sidebar: ['/blog/css', '/blog/html', '/blog/javascript']
+		sidebar: {
+			'/guide/': ['', 'one'],
+			'/home/': ['html5', 'css', 'javascript'],
+			'/vue/': ['', 'vueLoad']
+		}
 	}
 }
