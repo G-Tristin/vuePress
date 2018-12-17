@@ -5,7 +5,7 @@ actionText: 开启旅程 →
 actionLink: /guide/
 features:
 - title: 前端生涯
-  details: 一如前端深似海，从此再无不良人。
+  details: 历经磨难而不厌者，为修罗之路。
 - title: 心得
   details: 人生总是痛苦的，一直如此。
 - title: 高性能

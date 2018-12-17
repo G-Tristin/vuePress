@@ -16,10 +16,12 @@ module.exports = {
 			{ text: 'ES6', link: '/ES6/' },
 			{ text: 'gitHub', link: 'https://github.com/G-Tristin/vue' }
 		],
+		sidebarDepth:1,
 		sidebar: {
-			'/guide/': ['', 'one'],
+			'/guide/': ['', 'one','markdown'],
 			'/home/': ['html5', 'css', 'javascript'],
-			'/vue/': ['', 'vueLoad']
+			'/vue/': ['', 'vueLoad'],
+			'/ES6/':['','object']
 		}
 	}
 }
