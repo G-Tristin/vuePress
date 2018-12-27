@@ -21,7 +21,8 @@ module.exports = {
 			'/guide/': ['', 'one','markdown'],
 			'/home/': ['html5', 'css', 'javascript'],
 			'/vue/': ['', 'vueLoad'],
-			'/ES6/':['','object']
+			'/ES6/':['','object'],
+			'/node/':['','node入门']
 		}
 	}
 }
