@@ -22,7 +22,7 @@ module.exports = {
 			'/home/': ['html5', 'css', 'javascript'],
 			'/vue/': ['', 'vueLoad'],
 			'/ES6/':['','object'],
-			'/node/':['','node入门','node基本模块','node输入输出流','http服务','koa']
+			'/node/':['','node入门','node基本模块','node输入输出流','http服务','koa','express']
 		}
 	}
 }
