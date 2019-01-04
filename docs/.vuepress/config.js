@@ -12,9 +12,10 @@ module.exports = {
 				]
 			},
 			{ text: 'Vue', link: '/vue/' },
+			{	text:'React',link:'/react/'},
 			{ text: 'node', link: '/node/' },
 			{ text: 'ES6', link: '/ES6/' },
-			{text:'命令行',link:'/commander/'},
+			{	text:'命令行',link:'/commander/'},
 			{ text: 'gitHub', link: 'https://github.com/G-Tristin/vue' }
 		],
 		sidebarDepth:1,
@@ -24,7 +25,8 @@ module.exports = {
 			'/vue/': ['', 'vueLoad'],
 			'/ES6/':['','object'],
 			'/node/':['','node入门','node基本模块','node输入输出流','http服务','express','express静态资源处理','koa',],
-			'/commander/':['','option与action']
+			'/commander/':['','option与action'],
+			'/react/':['','受控组件']
 		}
 	}
 }

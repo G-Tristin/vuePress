@@ -1,11 +1,11 @@
 # option与action的理解
-option是给命令添加选项,并且可以配置一些选项的信息,以及处理选项的一些回调函数.的而action一般是给命令添加参数或者添加子命令而出发的函数.
+option是给命令添加选项，并且可以配置一些选项的信息，以及处理选项的一些回调函数.的而action一般是给命令添加参数或者添加子命令而出发的函数.
 
 ## 区别
-option当中的回调函数的this指向是node对象,而action的this指向是当前的command实例(如果是子命令下的action那么this就指向当前的子命令的command对象)
+option当中的回调函数的this指向是node对象，而action的this指向是当前的command实例(如果是子命令下的action那么this就指向当前的子命令的command对象)
 
 ## 触发机制
-option当中的回调函数的触发时机在使用了这个选项的时候就会触发,而action的触发机制则是在设置了参数`commander.arguments`以及在命令行使用来参数的时候就会触发,或者使用`commander.command()`设置子命令之后,调用了该子命令就会触发action.并且arguments当中的参数 以及command当中的参数都会被设置到action的参数当中.又有action当中的this指向指向的是当前的command对象,我们可以通过this.[option]来判断时候是存在该指令,如果存在那么可以采取相应的操作...
+option当中的回调函数的触发时机在使用了这个选项的时候就会触发，而action的触发机制则是在设置了参数`commander.arguments`以及在命令行使用来参数的时候就会触发，或者使用`commander.command()`设置子命令之后，调用了该子命令就会触发action.并且arguments当中的参数 以及command当中的参数都会被设置到action的参数当中.又有action当中的this指向指向的是当前的command对象，我们可以通过this.[option]来判断时候是存在该指令，如果存在那么可以采取相应的操作...
 
 猜想: 是否可以理解为子命令其实就是在该父命令上添加了一个参数而已.应该是触发的原理相同但是实现的原理不同.
 
@@ -19,4 +19,33 @@ commande对象下的常见属性有一下几个
 - _description ---描述信息
 - _events  ---一个包含该命令的option以及action的所有回调函数事件
 - _eventsCount  --- 事件的个数总和
-- 还有最后一个关键的属性:[option] ,这是一个不一定存在的属性 属性值为boolean.决定他的存在因数是option,如果存在`command.option('-l, --list')`那么就会存在一个属性值为true的list属性
+- 还有最后一个关键的属性:[option] ，这是一个不一定存在的属性 属性值为boolean.决定他的存在因数是option，如果存在`command.option('-l， --list')`那么就会存在一个属性值为true的list属性
+
+参考代码：
+```
+const commander = require('commander')
+commander
+.version('1.0.0')
+.option('-a， --all'，'参看说明'，function(){
+  console.log(1)
+})
+.option('-n， --number <n>'，'传入一个数字'，function(a){
+  console.log(a，this)
+})
+.arguments('[a]')
+.action(function(a){
+  console.log(a)
+})
+
+commander //创建一个子命令配置参数和选项最好和父命令分开 避免混淆
+.command('create <project>')
+.description('创建一个新的应用')
+.option('-l， --list [a]'，'试一试这个子命令下的规则'，function(a){
+  // console.log(this) //在option的回调函数中的的this指向的是process进程
+})
+.action(function(b){
+  // console.log(this) //在action的回调函数当中的this指向是子command对象
+})
+// console.log(commander) //这个commander对象指的是最外层的commander对象
+commander.parse(process.argv)
+```
