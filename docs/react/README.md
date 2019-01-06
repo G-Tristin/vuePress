@@ -99,7 +99,15 @@ render(){
 ```
 
 - 与运算符
-可以通过使用{}包裹代码的形式在JSX中可以嵌入任何的表达式，也包括JavaScript当中的逻辑符与 && 它可以方便的渲染一个元素
+可以通过使用{}包裹代码的形式在JSX中可以嵌入任何的表达式，也包括JavaScript当中的逻辑符与 && 它可以方便的渲染一个元素，
+值得注意的是，JavaScript 中的一些 “falsy” 值(比如数字0)，它们依然会被渲染。要解决这个问题，请确保 && 前面的表达式始终为布尔值。
+相反，如果你想让类似 false、true、null 或 undefined 出现在输出中，你必须先把它转换成字符串 
+
+```
+<div>
+  My JavaScript variable is {String(myVariable)}.
+</div>
+```
 
 ```
 render(){
