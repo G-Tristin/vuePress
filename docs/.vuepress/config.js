@@ -8,7 +8,8 @@ module.exports = {
 				items: [
 					{ text: 'HTML', link: '/home/html5' },
 					{ text: 'CSS', link: '/home/css' },
-					{ text: 'Javascript', link: '/home/javascript' }
+					{ text: 'Javascript', link: '/home/javascript' },
+					{ text:'Gulp',link:'/home/gulp'}
 				]
 			},
 			{ text: 'Vue', link: '/vue/' },

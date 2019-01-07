@@ -151,6 +151,8 @@ const store = createStore(
 
 异步操作的基本思路：
 
+异步需要3个action,请求前发送一个action 请求成功后一个action 请求失败后触发一个action 一共3个，同步只需要一个。
+
 - 使用redux-thunk中间件
 - 使用redux-promise中间件
 
