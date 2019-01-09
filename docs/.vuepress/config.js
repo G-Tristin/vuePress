@@ -10,7 +10,8 @@ module.exports = {
 					{ text: 'CSS', link: '/home/css' },
 					{ text: 'Javascript', link: '/home/javascript' },
 					{ text:'Gulp',link:'/home/gulp'},
-					{	text:'Webpack',link:'/home/webpack'}
+					{	text:'Webpack',link:'/home/webpack'},
+					{	text:'polyfill',link:'/home/webpack'}
 				]
 			},
 			{ text: 'Vue', link: '/vue/' },
@@ -23,7 +24,7 @@ module.exports = {
 		sidebarDepth:1,
 		sidebar: {
 			'/guide/': ['', 'one','markdown'],
-			'/home/': ['html5', 'css', 'javascript','gulp','webpack'],
+			'/home/': ['html5', 'css', 'javascript','gulp','webpack','polyfill'],
 			'/vue/': ['', 'vueLoad'],
 			'/ES6/':['','object'],
 			'/node/':['','node入门','node基本模块','node输入输出流','http服务','express','express静态资源处理','koa','npm'],
