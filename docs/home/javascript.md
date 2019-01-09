@@ -53,10 +53,10 @@ NODE_ENV是由用户定义的变量,在webpack中它的用途是判断是生产�
 1.1在window下配置环境变量
 
 ```
-#node中常用的到的环境变量是NODE_ENV，首先查看是否存在 
+#node中常用的到的环境变量是NODE_ENV，首先查看是否存在
 set NODE_ENV
 
-#如果不存在则添加环境变量 
+#如果不存在则添加环境变量
 set NODE_ENV=production
 
 #环境变量追加值 set 变量名=%变量名%;变量内容
