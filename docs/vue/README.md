@@ -1,5 +1,7 @@
 # vue
 
+其实Vue的官方文档的介绍已经是详细的不能再详细了,我之所以要写一点东西,一是为了给自己留一些提示,二是为了加深自己的印象.
+
 要了解Vue先了解Object.definePrototype
 
 ## Object.definePrototype
@@ -37,5 +39,3 @@ note:
 1.这些选项不一定是自身属性，如果是继承来的也要考虑。为了确认保留这些默认值，你可能要在这之前冻结 Object.prototype，明确指定所有的选项，或者通过 Object.create(null)将__proto__属性指向null。
 
 2.如果一个描述符不具有value,writable,get 和 set 任意一个关键字，那么它将被认为是一个数据描述符。如果一个描述符同时有(value或writable)和(get或set)关键字，将会产生一个异常。
-
-3.默认情况下

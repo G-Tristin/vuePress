@@ -23,9 +23,9 @@ module.exports = {
 		],
 		sidebarDepth:1,
 		sidebar: {
-			'/guide/': ['', 'one','markdown'],
+			'/guide/': ['', 'one','two','markdown'],
 			'/home/': ['html5', 'css', 'javascript','gulp','webpack','polyfill'],
-			'/vue/': ['', 'vueLoad'],
+			'/vue/': ['','first' ,'vueLoad'],
 			'/ES6/':['','object'],
 			'/node/':['','node入门','node基本模块','node输入输出流','http服务','express','express静态资源处理','koa','npm'],
 			'/commander/':['','option与action','publish'],
