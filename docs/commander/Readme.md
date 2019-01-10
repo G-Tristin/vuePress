@@ -66,13 +66,10 @@ commander
 
 ### 使用commander给当前脚本命令添加参数
 ```
+
 const commander = require('commander')
 commander
 .version('1.0.0','-v,--version')
 .option('-l,--list')
 .arguments('<v>')//使用<v>或者[v]的形参 <>代表必传 []代表可选
 ```
-
-## 如何发布一个全局的包构建脚手架
-
-[文档](https://www.cnblogs.com/vok-think/p/7475073.html)
