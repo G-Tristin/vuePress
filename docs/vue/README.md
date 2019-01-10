@@ -4,6 +4,8 @@
 
 要了解Vue先了解Object.definePrototype
 
+[vue技术揭秘](https://ustbhuangyi.github.io/vue-analysis/)
+
 ## Object.definePrototype
 
 1.属性描述符
