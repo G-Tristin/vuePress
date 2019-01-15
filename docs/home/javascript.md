@@ -116,3 +116,64 @@ console.log('process.env.NODE_ENV 的值是(webpack.config.js)：' + process.env
   //这种通过脚本设置NODE_ENV只会在serve或者build的时候给process.env设置NODE_ENV.进程结束就会删除环境变量的当前属性
 },
 ```
+
+## 阻止事件冒泡和事件捕获
+
+阻止事件冒泡的方式：
+
+1.使用on添加的事件  event.cancelBubble = true;
+
+2.使用addEventListener  event.stopPropagation();
+
+阻止默认事件的方式：
+
+1.使用on添加的事件 return false
+
+2.使用addEventListener event.preventDefault()
+
+## jsonP
+
+[文档](https://zhangguixu.github.io/2016/12/02/jsonp/)
+
+eg：一个简单的jsop的实现
+
+```
+function JsonP(params){
+  const script = document.createElement('script');
+  const head = document.getElementByTagName('head')[0];
+  script.src= params.url + `?callback=${params.callback}`
+  head.appendChild(script)
+
+}
+fn(data){
+  console.log(data)
+}
+JsonP({url:'',callback:fn})
+```
+
+当我们调用JsonP的时候回发送请求，请求返回后会调用回调函数，那么为什么请求返回后会调用回调函数呢？
+
+后端服务代码
+
+```
+var http = require('http');
+var urllib = require('url');
+var port = 8080;
+var data = {'data':'world'};
+http.createServer(function(req,res){
+    var params = urllib.parse(req.url,true);
+    if(params.query.callback){
+        console.log(params.query.callback);
+        //jsonp
+        var str = params.query.callback + '(' + JSON.stringify(data) + ')';
+        //核心在此处 把后调函数返回 并带入数据执行
+        res.end(str);
+    } else {
+        res.end();
+    }
+    
+}).listen(port,function(){
+    console.log('jsonp server is on');
+});
+```
+
