@@ -190,3 +190,21 @@ note:setTimeout()的最小延时时间是4毫秒 ，如果不足4毫秒就默认
 ### mic与mac
 
 不同的任务源会被分配到不同的Task队列当中，任务源可以分为(mic)微任务和(mac)宏任务
+
+在ES6的规范中微任务被称为jobs，宏任务被称为task
+
+### 微任务与宏任务的分类
+
+mic: process.nextTick promise Object.observe(事件监听) MutationObserver
+
+mac: script setTimeout setInterval setImmediate I/O UI rendering
+
+很多人有个误区，认为微任务快于宏任务，其实是错误的。因为宏任务中包括了 script ，浏览器会先执行一个宏任务，接下来有异步代码的话就先执行微任务。
+
+所以正确的一次 Event loop 顺序是这样的
+
+1.执行同步代码，这属于宏任务
+2.执行栈为空，查询是否有微任务需要执行
+3.执行所有微任务
+4.必要的话渲染 UI
+5.然后开始下一轮 Event loop，执行宏任务中的异步代码
