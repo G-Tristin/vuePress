@@ -1,5 +1,7 @@
 # javascript
 
+[前端面试](https://yuchengkai.cn/docs/frontend/browser.html#event-loop)
+
 ## import 与 require的区别
 
 require()方法是commonJS所使用的引用模块的方法，一般用于服务器加载模块.
@@ -171,9 +173,20 @@ http.createServer(function(req,res){
     } else {
         res.end();
     }
-    
 }).listen(port,function(){
     console.log('jsonp server is on');
 });
 ```
 
+## EventLoop
+
+总所周知javascript是单线程的语言，因为它是服务于浏览器的，如果浏览器出现多线程，多个线程同时操作一个DOM就会出现错误
+
+JS在执行过程中会产生执行环境，这些执行环境会按顺序被加入到执行栈中，如果遇到异步代码就会暂时挂起，将其放入到Task(有多种task)队列当中。
+一旦执行栈为空EventLoop就会从队列当中拿出需要执行的代码，放入到执行栈中执行
+
+note:setTimeout()的最小延时时间是4毫秒 ，如果不足4毫秒就默认取4毫秒
+
+### mic与mac
+
+不同的任务源会被分配到不同的Task队列当中，任务源可以分为(mic)微任务和(mac)宏任务
