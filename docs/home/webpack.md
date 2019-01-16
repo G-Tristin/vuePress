@@ -346,3 +346,31 @@ plugins: [
     }),
   ]
 ```
+
+## 缓存
+
+如果我们在部署新版本时不更改资源的文件名，浏览器可能会认为它没有被更新，就会使用它的缓存版本。由于缓存的存在，当你需要获取新的代码时，就会显得很棘手。
+
+
+## webpack-dev-middleware
+
+为什么要使用服务器中间件？
+
+因为打包后的文件不能直接被node创建的服务器使用，必须使用webpack-dev-middleware包装后使用
+
+serve.js
+
+```
+const express = require('express')
+const webpack = require('webpack')
+const webpackDevMiddleware = require('webpack-dev-middleware');
+const config = require('./webpack.config.js') //应用一个webpack的配置文件 webpack配置文件最后返回值都是一个对象
+const compiler = webpack(config)
+const app = express()
+app.use(webpackDevMiddleware(compiler, {
+  publicPath: config.output.publicPath
+})) //这一步的主要当中的webpackDevMiddleware(compiler, {publicPath: config.output.publicPath}) 返回值 应该就是针对本地路径的返回打包后的文件
+app.listen(3000,function(){
+  console.log(开启服务监听)
+})
+```
