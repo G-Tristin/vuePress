@@ -26,7 +26,7 @@ http://localhost:3000/hello.html
 ```
 如果我们使用以下方式
 ```
-app.use('/static','public')
+app.use('/static',express.static('public'))
 ```
 那么我们可以使用加了url前缀的方式访问
 ```
