@@ -23,7 +23,7 @@ module.exports = {
 		],
 		sidebarDepth:1,
 		sidebar: {
-			'/guide/': ['', 'one','two','markdown'],
+			'/guide/': ['', 'one','markdown'],
 			'/home/': ['html5', 'css', 'javascript','gulp','webpack','polyfill'],
 			'/vue/': ['','first' ,'vueLoad'],
 			'/ES6/':['','object'],

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>webpack | 修罗之路</title>
+    <meta name="description" content="做想做的事，爱想爱的人">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.520e7122.css" as="style"><link rel="preload" href="/assets/js/app.e2e67a27.js" as="script"><link rel="preload" href="/assets/js/17.c5c0d3f4.js" as="script"><link rel="prefetch" href="/assets/js/10.17040d2c.js"><link rel="prefetch" href="/assets/js/11.65925a37.js"><link rel="prefetch" href="/assets/js/12.a6aa82ca.js"><link rel="prefetch" href="/assets/js/13.047df750.js"><link rel="prefetch" href="/assets/js/14.1f5bcaaa.js"><link rel="prefetch" href="/assets/js/15.5f253bde.js"><link rel="prefetch" href="/assets/js/16.4c222e00.js"><link rel="prefetch" href="/assets/js/18.d4634f74.js"><link rel="prefetch" href="/assets/js/19.972b4802.js"><link rel="prefetch" href="/assets/js/2.d9c7c5e8.js"><link rel="prefetch" href="/assets/js/20.0997c38a.js"><link rel="prefetch" href="/assets/js/21.f3be93bc.js"><link rel="prefetch" href="/assets/js/22.59d0d40a.js"><link rel="prefetch" href="/assets/js/23.4a79d8a6.js"><link rel="prefetch" href="/assets/js/24.fd02f7a9.js"><link rel="prefetch" href="/assets/js/25.fcfb6698.js"><link rel="prefetch" href="/assets/js/26.e2c242d8.js"><link rel="prefetch" href="/assets/js/27.e30fd69c.js"><link rel="prefetch" href="/assets/js/28.1a0cff41.js"><link rel="prefetch" href="/assets/js/29.1577b44d.js"><link rel="prefetch" href="/assets/js/3.62e29986.js"><link rel="prefetch" href="/assets/js/30.8102a796.js"><link rel="prefetch" href="/assets/js/31.f3f5b755.js"><link rel="prefetch" href="/assets/js/32.f7b546bb.js"><link rel="prefetch" href="/assets/js/33.987c16d1.js"><link rel="prefetch" href="/assets/js/34.e15f32d5.js"><link rel="prefetch" href="/assets/js/35.1250558a.js"><link rel="prefetch" href="/assets/js/4.7b202c41.js"><link rel="prefetch" href="/assets/js/5.f8de62e0.js"><link rel="prefetch" href="/assets/js/6.316f1abd.js"><link rel="prefetch" href="/assets/js/7.ef8b22af.js"><link rel="prefetch" href="/assets/js/8.6dad05a3.js"><link rel="prefetch" href="/assets/js/9.17cc79e3.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.520e7122.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">修罗之路</span></a> <div class="links" style="max-width:nullpx;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">前端</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/home/html5.html" class="nav-link">HTML</a></li><li class="dropdown-item"><!----> <a href="/home/css.html" class="nav-link">CSS</a></li><li class="dropdown-item"><!----> <a href="/home/javascript.html" class="nav-link">Javascript</a></li><li class="dropdown-item"><!----> <a href="/home/gulp.html" class="nav-link">Gulp</a></li><li class="dropdown-item"><!----> <a href="/home/webpack.html" class="nav-link router-link-exact-active router-link-active">Webpack</a></li><li class="dropdown-item"><!----> <a href="/home/webpack.html" class="nav-link router-link-exact-active router-link-active">polyfill</a></li></ul></div></div><div class="nav-item"><a href="/vue/" class="nav-link">Vue</a></div><div class="nav-item"><a href="/react/" class="nav-link">React</a></div><div class="nav-item"><a href="/node/" class="nav-link">node</a></div><div class="nav-item"><a href="/ES6/" class="nav-link">ES6</a></div><div class="nav-item"><a href="/commander/" class="nav-link">命令行</a></div><div class="nav-item"><a href="https://github.com/G-Tristin/vue" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  gitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">前端</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/home/html5.html" class="nav-link">HTML</a></li><li class="dropdown-item"><!----> <a href="/home/css.html" class="nav-link">CSS</a></li><li class="dropdown-item"><!----> <a href="/home/javascript.html" class="nav-link">Javascript</a></li><li class="dropdown-item"><!----> <a href="/home/gulp.html" class="nav-link">Gulp</a></li><li class="dropdown-item"><!----> <a href="/home/webpack.html" class="nav-link router-link-exact-active router-link-active">Webpack</a></li><li class="dropdown-item"><!----> <a href="/home/webpack.html" class="nav-link router-link-exact-active router-link-active">polyfill</a></li></ul></div></div><div class="nav-item"><a href="/vue/" class="nav-link">Vue</a></div><div class="nav-item"><a href="/react/" class="nav-link">React</a></div><div class="nav-item"><a href="/node/" class="nav-link">node</a></div><div class="nav-item"><a href="/ES6/" class="nav-link">ES6</a></div><div class="nav-item"><a href="/commander/" class="nav-link">命令行</a></div><div class="nav-item"><a href="https://github.com/G-Tristin/vue" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  gitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/home/html5.html" class="sidebar-link">html</a></li><li><a href="/home/css.html" class="sidebar-link">css</a></li><li><a href="/home/javascript.html" class="sidebar-link">javascript</a></li><li><a href="/home/gulp.html" class="sidebar-link">gulp</a></li><li><a href="/home/webpack.html" class="active sidebar-link">webpack</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/home/webpack.html#_1-核心概念" class="sidebar-link">1.核心概念</a></li><li class="sidebar-sub-header"><a href="/home/webpack.html#_2-webpack的工作流程" class="sidebar-link">2.webpack的工作流程</a></li><li class="sidebar-sub-header"><a href="/home/webpack.html#_3-resolve-解析-设置配置模块如何解析" class="sidebar-link">3.resolve(解析) : 设置配置模块如何解析</a></li><li class="sidebar-sub-header"><a href="/home/webpack.html#_4-loader" class="sidebar-link">4.loader</a></li><li class="sidebar-sub-header"><a href="/home/webpack.html#_5-output以及publicpath理解" class="sidebar-link">5.output以及publicPath理解</a></li><li class="sidebar-sub-header"><a href="/home/webpack.html#代码分割和代码拆分" class="sidebar-link">代码分割和代码拆分</a></li><li class="sidebar-sub-header"><a href="/home/webpack.html#安装开发者服务器" class="sidebar-link">安装开发者服务器</a></li><li class="sidebar-sub-header"><a href="/home/webpack.html#webpack可优化点总结" class="sidebar-link">webpack可优化点总结</a></li><li class="sidebar-sub-header"><a href="/home/webpack.html#缓存" class="sidebar-link">缓存</a></li><li class="sidebar-sub-header"><a href="/home/webpack.html#webpack-dev-middleware" class="sidebar-link">webpack-dev-middleware</a></li></ul></li><li><a href="/home/polyfill.html" class="sidebar-link">polyfill</a></li></ul> </div> <div class="page"> <div class="content"><h1 id="webpack"><a href="#webpack" aria-hidden="true" class="header-anchor">#</a> webpack</h1> <p>webpack的基础知识</p> <h2 id="_1-核心概念"><a href="#_1-核心概念" aria-hidden="true" class="header-anchor">#</a> 1.核心概念</h2> <ul><li><p>Entry：入口，webpack构建文件的起点</p></li> <li><p>Module：模块，在webpack当中一切解释模块，一个模块对应着一个文件。webpack会从配置的Entry开始递归找出所有的依赖模块。、</p></li> <li><p>Chunk：代码块，一个代码块由多个模块构成，用于代码的合并与分割</p></li> <li><p>Loader：模块转换器，用于把模块原内容按照需求转换成新内容</p></li> <li><p>Plugin：扩展插件，在Webpack构建流程当中的特定时机注入扩展逻辑来改变构建结果或者添加你想要做的事情</p></li> <li><p>Output：输出结果,在Webpack经过一系列处理并得出最终想要的代码后输出结果</p></li></ul> <h2 id="_2-webpack的工作流程"><a href="#_2-webpack的工作流程" aria-hidden="true" class="header-anchor">#</a> 2.webpack的工作流程</h2> <p>在Webpack当中一切皆模块,Webpack能够根据模块间的依赖关系将它们组合打包,将浏览器不能直接运行的拓展语言(typeScript,Scss等),转换成浏览器能够直接运行的静态资源.</p> <ul><li><p>webpack启动后会从Entry里配置的Module开始递归解析Entry依赖的所有的Module.</p></li> <li><p>每找到一个Module,就会根据配置的loader去找到对应的转换规则,对Module进行转换后,再解析出当前Moduel依赖的module.</p></li> <li><p>这些模块会以Entry为单位进行分组,一个Entry和其所有依赖的Module被分到一个组也就是一个Chunk.</p></li> <li><p>最后Webpack会把所有Chunk转换成文件输出.在整个流程中webpack会在恰当的时机执行Plugin里定义的逻辑.</p></li></ul> <h2 id="_3-resolve-解析-设置配置模块如何解析"><a href="#_3-resolve-解析-设置配置模块如何解析" aria-hidden="true" class="header-anchor">#</a> 3.resolve(解析) : 设置配置模块如何解析</h2> <ul><li>extensions</li></ul> <p>指定extension之后可以不用在require和import的事就加文件扩展名,会依次尝试添加扩展名进行匹配</p> <ul><li>alias</li></ul> <p>配置别名可以加快webpack查找模块的速度</p> <p><em>每当引入jquery模块的时候,它会直接引入jqueryPath,而不需要从node_modules文件夹中按模块的查找规则查找</em></p> <p><em>不需要webpack去解析jquery.js文件</em></p> <h2 id="_4-loader"><a href="#_4-loader" aria-hidden="true" class="header-anchor">#</a> 4.loader</h2> <p>note:针对bable-loader处理慢的解决方法</p> <ul><li>exclude/include:排除node_modules当中的文件</li> <li>cacheDirectory:这会将转译的结果缓存到系统文件</li></ul> <h3 id="url-loader"><a href="#url-loader" aria-hidden="true" class="header-anchor">#</a> url-loader</h3> <p>url-loader 是文件预处理器，用来处理image文件。url-loader对未设置或者小于limit设置的图片进行转换，以base64的格式被img的src所使用；而对于大于limit byte的图片用file-loader进行解析.</p> <div class="language- extra-class"><pre class="language-text"><code>module: {
+    rules:[
+      {
+        test: /\.(png|jpg|jpeg|gif|svg)$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 8192
+            }
+          }
+        ]
+      }
+    ]
+}
+</code></pre></div><p>limit设置的必要性：</p> <p>对于比较小的图片，使用base64编码，可以减少一次图片的网络请求</p> <p>比较大的图片,使用base64加大了html页面的大小，会加大下载页面的大小</p> <h3 id="vue-loader"><a href="#vue-loader" aria-hidden="true" class="header-anchor">#</a> vue-loader</h3> <div class="language- extra-class"><pre class="language-text"><code>const VueLoaderPlugin = require('vue-loader/lib/plugin')
+resolve: {
+  alias: {
+    'vue$': 'vue/dist/vue.common.js'
+  }
+},
+module: {
+    rules:[
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader'
+      }
+    ]
+},
+plugins: [
+  new VueLoaderPlugin(),
+]
+</code></pre></div><ul><li>VueLoaderPlugin()插件的重要性</li></ul> <p>这个插件是必须的!他的职责是将你定义过得其他规则复制并应用到.vue文件当中相应的语言块.
+例如:在你的module:{}当中的rules当中有一个匹配/.js$/的规则,那么该规则可以通过这个插件应用到.vue的文件当中</p> <ul><li>当页面运行的时候出现如下报错的时候:
+[Vue warn]: You are using the runtime-only build of Vue where the template compiler is not available. Either pre-compile the templates into render functions, or use the compiler-included build.</li></ul> <p>需要增加如下配置:</p> <p>resolve: {
+alias: {
+'vue$': 'vue/dist/vue.common.js'
+}
+},
+运行时构建不包含模板编译器，因此不支持template选项，只能用render选项，但即使使用运行时构建，在单文件组件中也依然可以写模板，因为单文件组件的模板会在构建时预编译为render函数。如果我们想使用template，我们不能直接在客户端使用npm install之后的vue。</p> <p>note:</p> <p>Vue当中scoped和CSS模块化的区别,vue当中只是增加了css样式选择优先级的权重并不是真正的模块化.</p> <h2 id="_5-output以及publicpath理解"><a href="#_5-output以及publicpath理解" aria-hidden="true" class="header-anchor">#</a> 5.output以及publicPath理解</h2> <p><a href="https://juejin.im/post/5ae9ae5e518825672f19b094" target="_blank" rel="noopener noreferrer">文档<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <p>output是在webpack经过一系列处理并得出最总想要的代码后输出的结果</p> <div class="language- extra-class"><pre class="language-text"><code>output: {
+    //输出文件的目标路径
+    path: path.resolve(__dirname, './dist'),
+    //加载资源的相对路径
+    publicPath: '',
+    //附加分块的文件名模板，按需加载chunk的输出文件
+    chunkFilename: '[name].[chunkhash].js',
+    //每个输出文件的名称，必填
+    filename: '[name].js'
+  }
+</code></pre></div><h3 id="解读path和publicpath的区别"><a href="#解读path和publicpath的区别" aria-hidden="true" class="header-anchor">#</a> 解读path和publicPath的区别</h3> <p>output选项指定webpack输出的位置,其中比较重要的也是经常要用到的有path和publicPath.</p> <p>output.path 只是指示输出的目录,对应一个绝对路径,例如在项目中通常会做如下的配置:</p> <div class="language- extra-class"><pre class="language-text"><code>output:{
+  path:path.resolve(__dirname,'../dist'),
+}
+</code></pre></div><p>output.publicPath</p> <p>官方文档的解释是:webpack提供一个非常有用的配置,该配置能够帮助你为项目中的所有资源指定一个基础路径,它被称为是公共路径</p> <p>其实这里说的所有资源的基础路径是指项目中引用的css,js,img等资源时候的一个基础路径,这个基础路径要配合具体资源中指定的路径使用,
+所以其实打包后资源的访问路径可以用如下公式表所示:</p> <div class="language- extra-class"><pre class="language-text"><code>静态资源最终访问路径 = output.publicPath + 资源loader或插件等配置的路径
+</code></pre></div><p>例如:</p> <div class="language- extra-class"><pre class="language-text"><code>output.publicPath = '/dist/'
+
+// image
+options: {
+  name: 'img/[name].[ext]?[hash]'
+}
+
+// 最终图片的访问路径为
+output.publicPath + 'img/[name].[ext]?[hash]' = '/dist/img/[name].[ext]?[hash]'
+
+// js output.filename
+output: {
+  filename: '[name].js'
+}
+// 最终js的访问路径为
+output.publicPath + '[name].js' = '/dist/[name].js'
+
+// extract-text-webpack-plugin css
+new ExtractTextPlugin({
+  filename: 'style.[chunkhash].css'
+})
+// 最终css的访问路径为
+output.publicPath + 'style.[chunkhash].css' = '/dist/style.[chunkhash].css'
+</code></pre></div><p>这个最终静态资源访问路径在使用html-webpack-plugin打包后得到的html中可以看到.所以publicPath设置成相对路径后,相对路径是相对于build之后的index.html的,
+例如,如果设置publicPath:'./dist/',则打包后js的引用路径为./dist/main.js,但是这里有一个问题,相对路径在本地时可以,但是如果将静态资源托管到CDN上则访问路径
+显然不能使用相对路径,但是如果将publicPath设置成'/',则打包后访问路径为localhost:8080/dist/main.js,本地无法访问.</p> <p>使用一下方式用来设置线上和线下的公共路径</p> <div class="language- extra-class"><pre class="language-text"><code>publicPath: process.env.NODE_ENV === 'production'
+  ? config.build.assetsPublicPath
+  : config.dev.assetsPublicPath
+</code></pre></div><hr> <div class="language- extra-class"><pre class="language-text"><code>一般情况下publicPath应该以'/'结尾,而其他loader或插件的配置不要以'/'开头
+</code></pre></div><h3 id="webpack-dev-server中的publicpath"><a href="#webpack-dev-server中的publicpath" aria-hidden="true" class="header-anchor">#</a> webpack-dev-server中的publicPath</h3> <p>在开发阶段,我们借用devServe启动一个开发服务器进行开发,这里也会配置一个publicPath(在devServe中),这里的publicPath路径下的打包文件可再浏览器当中访问.而静态资源
+仍然使用output.publicPath.</p> <p>webpack-dev-serve打包的内容是放在内存当中的,这些打包后的资源对外的根目录就是publicPath,换句话说,这里我们设置的是打包后资源存放的位置</p> <p>例如:</p> <div class="language- extra-class"><pre class="language-text"><code>// 假设devServer的publicPath为
+const publicPath = '/dist/'
+// 则启动devServer后index.html的位置为
+const htmlPath = `${pablicPath}index.html`
+// 包的位置
+cosnt mainJsPath = `${pablicPath}main.js`
+</code></pre></div><p>以上可以直接通过http://lcoalhost:8080/dist/main.js访问到
+通过访问 http://localhost:8080/webpack-dev-server 可以得到devServer启动后的资源访问路径，如图所示，点击静态资源可以看到静态资源的访问路径为 http://localhost:8080${publicPath}index.html</p> <h3 id="html-webpack-plugin"><a href="#html-webpack-plugin" aria-hidden="true" class="header-anchor">#</a> html-webpack-plugin</h3> <p>该插件用于将css和js添加到html模板当中,其中template和filename会受到路径的影响.</p> <p>template</p> <p>作用:用于定义模板文件的路径</p> <p>源码:</p> <div class="language- extra-class"><pre class="language-text"><code>this.options.filename = path.relative(compiler.options.output.path, filename);
+</code></pre></div><p>因此template只有定义在webpack的context下才会被识别，webpack context的默认值为process.cwd()，既运行 node 命令时所在的文件夹的绝对路径</p> <p>filename</p> <p>作用:输出的HTML文件名,默认为index.html,可以直接配置带有子目录</p> <p>源码:</p> <div class="language- extra-class"><pre class="language-text"><code>this.options.filename = path.relative(compiler.options.output.path, filename);
+</code></pre></div><p>所以filename的路径是相对于output.path的，而在webpack-dev-server中，则是相对于webpack-dev-server配置的publicPath。</p> <p>如果webpack-dev-server的publicPath和output.publicPath不一致，在使用html-webpack-plugin可能会导致引用静态资源失败，因为在使用该插件时,devServer中仍然以output.publicPath引用静态资源,和webpack-dev-server的提供的资源访问路径不一致，从而无法正常访问。</p> <p>有一种情况除外，就是output.publicPath是相对路径，这时候可以访问本地资源</p> <p>所以一般情况下都要保证devServer中的publicPath与output.publicPath保持一致</p> <h3 id="路径的小知识"><a href="#路径的小知识" aria-hidden="true" class="header-anchor">#</a> 路径的小知识</h3> <ul><li><p>devServer.contentBase 告诉服务器从哪里提供内容.只有在你想要提供静态文件时才需要.</p></li> <li><p>devServer.publicPaht 将用于确定应该从哪里提供bundle,并且此选项优先.</p></li></ul> <p>node中的路径:</p> <p>__dirname:总是返回被执行的js所在文件夹的绝对路径</p> <p>__filename:总是返回被执行的js的绝对路径</p> <p>process.cwd():总是返回运行node命令时所在的文件夹的绝对路径</p> <h2 id="代码分割和代码拆分"><a href="#代码分割和代码拆分" aria-hidden="true" class="header-anchor">#</a> 代码分割和代码拆分</h2> <p>Webpack的代码分割功能将代码分割成多个bundle,从而实现按需加载或并行加载.相对于大型的app来说,所有的代码放到一个单独的文件会导致效率低下,webpack提供拆分块的这种机制,
+尤其是在某些条件下才会有需求的代码块,这些代码块应该在需要的时候加载,不需要的时候不加载.</p> <h3 id="有3种常用的代码分割的方法"><a href="#有3种常用的代码分割的方法" aria-hidden="true" class="header-anchor">#</a> 有3种常用的代码分割的方法:</h3> <ul><li><p>入口点:在配置文件中通过entry手动指定分割</p></li> <li><p>去重:使用CommonsChunkPlugin插件抽取重复的模块(webpack4.0不再使用 新版本使用SplitChunksPlugin)</p></li> <li><p>动态加载:通过模块内的内联函数来实现</p></li></ul> <h3 id="可用于分割代码的其他插件和加载器"><a href="#可用于分割代码的其他插件和加载器" aria-hidden="true" class="header-anchor">#</a> 可用于分割代码的其他插件和加载器</h3> <ul><li><p>ExtractTextPlugin:可用于将CSS从主程序当中分割出来</p></li> <li><p>bundle-loader:可用来分割代码并按需加载模块</p></li> <li><p>promise-loader:和bundle-loader类似,但是使用promises</p></li></ul> <h3 id="代码分割的好处"><a href="#代码分割的好处" aria-hidden="true" class="header-anchor">#</a> 代码分割的好处</h3> <ul><li><p>解决文件体积过大的问题</p></li> <li><p>按需加载</p></li> <li><p>并行加载,减少加载时间,提供性能</p></li></ul> <h2 id="安装开发者服务器"><a href="#安装开发者服务器" aria-hidden="true" class="header-anchor">#</a> 安装开发者服务器</h2> <p>1.安装&gt; npm install webpack-dev-serve -d
+2.配置开发服务器参数</p> <div class="language- extra-class"><pre class="language-text"><code>devServe:{
+  contentBase:path.resolve(__dirname,'dist'),//配置开发服务器运行时的文件跟目录
+  host:'localhost',//开发服务器监听的主机地址
+  compress:true,//开发服务器是否启动gzip等压缩
+  port:8080//开发服务器的监听端口
+}
+</code></pre></div><h2 id="webpack可优化点总结"><a href="#webpack可优化点总结" aria-hidden="true" class="header-anchor">#</a> webpack可优化点总结</h2> <ul><li><p>缩小文件的搜索范围:include &amp; exclude</p></li> <li><p>压缩JS代码:UglifyjsWebpackPlugin</p></li> <li><p>代码分离 提取公共代码</p></li> <li><p>热模块替换:不刷新整个页面,只更新指定的模块</p></li> <li><p>区分环境:开发环境和生产环境</p></li> <li><p>HappyPack:HappyPack能让Webpack把任务分解给多个子进程去并发的执行，子进程处理完后再把结果发送给主进程.</p></li></ul> <div class="language- extra-class"><pre class="language-text"><code>plugins: [
+    new VueLoaderPlugin(),
+    new webpack.DefinePlugin({
+      PAGE_NAME: JSON.stringify(require('./package.json').name)
+    }),
+    new HappyPack({
+        id: 'babel',
+        cache: false,
+        loaders: [{
+            loader: 'babel-loader?cacheDirectory=true', 
+        }]// 和rules里的配置相同
+    }),
+  ]
+</code></pre></div><h2 id="缓存"><a href="#缓存" aria-hidden="true" class="header-anchor">#</a> 缓存</h2> <p>如果我们在部署新版本时不更改资源的文件名，浏览器可能会认为它没有被更新，就会使用它的缓存版本。由于缓存的存在，当你需要获取新的代码时，就会显得很棘手。</p> <h2 id="webpack-dev-middleware"><a href="#webpack-dev-middleware" aria-hidden="true" class="header-anchor">#</a> webpack-dev-middleware</h2> <p>为什么要使用服务器中间件？</p> <p>因为打包后的文件不能直接被node创建的服务器使用，必须使用webpack-dev-middleware包装后使用</p> <p>serve.js</p> <div class="language- extra-class"><pre class="language-text"><code>const express = require('express')
+const webpack = require('webpack')
+const webpackDevMiddleware = require('webpack-dev-middleware');
+const config = require('./webpack.config.js') //应用一个webpack的配置文件 webpack配置文件最后返回值都是一个对象
+const compiler = webpack(config)
+const app = express()
+app.use(webpackDevMiddleware(compiler, {
+  publicPath: config.output.publicPath
+})) //这一步的主要当中的webpackDevMiddleware(compiler, {publicPath: config.output.publicPath}) 返回值 应该就是针对本地路径的返回打包后的文件
+app.listen(3000,function(){
+  console.log(开启服务监听)
+})
+</code></pre></div></div> <div class="page-edit"><!----> <!----></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/home/gulp.html" class="prev">
+          gulp
+        </a></span> <span class="next"><a href="/home/polyfill.html">
+          polyfill
+        </a>
+        →
+      </span></p></div> </div> <!----></div></div>
+    <script src="/assets/js/app.e2e67a27.js" defer></script><script src="/assets/js/17.c5c0d3f4.js" defer></script>
+  </body>
+</html>
