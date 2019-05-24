@@ -65,7 +65,7 @@ module.exports = {
 			'/home/': ['html5', 'css', 'javascript', 'gulp', 'webpack', 'polyfill','babel'],
 			'/vue/': ['', 'first', 'vueLoad'],
 			'/ES6/': ['', 'object','es6class','es6class-extend'],
-			'/node/': ['', 'node入门', 'node基本模块', 'node输入输出流', 'http服务', 'express', 'express静态资源处理', 'koa', 'npm'],
+			'/node/': ['', 'commonjs', 'node基本模块', 'node输入输出流', 'http服务', 'express', 'express静态资源处理', 'koa', 'npm'],
 			'/commander/': ['', 'option与action', 'publish'],
 			'/react/': ['', '受控组件', '状态提升与slot', 'redux.md']
 		}
