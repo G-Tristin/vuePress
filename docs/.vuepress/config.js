@@ -26,7 +26,7 @@ module.exports = {
 					},
 					{
 						text: 'polyfill',
-						link: '/home/webpack'
+						link: '/home/polyfill'
 					},
 					{
 						text:'babel',
@@ -62,7 +62,7 @@ module.exports = {
 		sidebarDepth: 1,
 		sidebar: {
 			'/guide/': ['', 'one', 'markdown'],
-			'/home/': ['html5', 'css', 'javascript', 'gulp', 'webpack', 'polyfill','babel'],
+			'/home/': ['html5', 'css', 'javascript', 'gulp', 'webpack', 'polyfill','babel','context'],
 			'/vue/': ['', 'first', 'vueLoad'],
 			'/ES6/': ['', 'object','es6class','es6class-extend'],
 			'/node/': ['', 'commonjs', 'node基本模块', 'node输入输出流', 'http服务', 'express', 'express静态资源处理', 'koa', 'npm'],
