@@ -1,1 +1,0 @@
-console.log('data from child and send to parent')
