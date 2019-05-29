@@ -86,4 +86,36 @@ process.on('uncaughtExecption',function(err){
 
 实不相瞒还是看官方文档比较好
 
+### 父子进程通信
+index.js
+```
+const cp = require('child_process');
+const n = cp.fork(`${__dirname}/sub.js`); //返回值是一个'child_Process'
+// 返回的是被创建的子进程实例对象
+n.on('message', (m) => {
+  console.log('父进程收到消息', m);
+  // 当前的事件是在子进程的实例对象上绑定的 那为什么说是父进程收到了消息呢?
+  // 当前进程仍然是父进程 但是 是在父进程内的子进程实例对象上添加了事件回调 获取到消息 这样实现了进程之间的通信
+  // 二个进程还是独立运行的
+});
+console.log(n)
+// 使子进程输出: 子进程收到消息 { hello: 'world' }
+n.send({ hello: 'world' }); // 通过在父进程中的子进程实例对象给子进程发送消息
+```
+
+sub.js
+```
+process.on('message', (m) => {
+  console.log('子进程收到消息', m);
+});
+// 使父进程输出: 父进程收到消息 { foo: 'bar', baz: null }
+process.send({ foo: 'bar', baz: NaN });
+console.log(process)
+
+// 这里是一个子进程但是为什么用process来访问这个子进程呢? 
+// 因为在当前文件是由index.js当中采用子进程模块'child_process'开启的node应用程序，由子进程管理。
+// 但是我们在当前文件中还是需要使用process进行访问。并且通过fork()产生的子进程将会与父进程
+产生IPC通道所以可以使用process.send()给父进程发送信息
+```
+
 
