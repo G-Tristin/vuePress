@@ -21,7 +21,7 @@ import 'lib-flexible'
 
 第二部分:使用px2rem-loader自动将css中的px转换成rem
 
-注意：
+注意:
 
     1.此方法只能将.vue文件style标签中的px转成rem，不能将script标签和元素style里面定义的px转成rem
 
