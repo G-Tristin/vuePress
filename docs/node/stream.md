@@ -198,11 +198,130 @@ pass.resume(); // 必须调用它才会触发 'data' 事件。 data事件的触�
 
 ### 'data'事件
 - chunk 数据块 对于非对象模式的流，chunk可以时字符串或者时Buffer。对于对象模式的流，chunk可以是任意的javascript的值，除了null。
-当流将数据块传送给消费者后触发。 当调用 readable.pipe()， readable.resume() 或绑定监听器到 'data' 事件时，流会转换到流动模式。 当调用 readable.read() 且有数据块返回时，也会触发 'data' 事件。
+
+当流将数据块传送给消费者后触发。
+
+ 当调用 readable.pipe()， readable.resume() 或绑定监听器到 'data' 事件时，流会转换到流动模式。 当调用 readable.read() 且有数据块返回时，也会触发 'data' 事件。
 如果使用 readable.setEncoding() 为流指定了默认的字符编码，则监听器回调传入的数据为字符串，否则传入的数据为 Buffer。
 ```
 const readable = getReadableStreamSomehow();
 readable.on('data', (chunk) => {
   console.log(`接收到 ${chunk.length} 个字节的数据`);
 });
+```
+### 'end'事件
+当流中没有数据可供消费时触发
+'end'事件只有再数据被完全消费的时候才会触发。要想触发该事件，可以将流切换到流动模式，或反复调用stream.read()直到数据被消费完。
+```
+const readable = getReadableStreamSomehow()
+readable.on('data',(chunk)=>{
+  console.log(`接收到${chunk.length}个字节数据`)
+})
+readable.on('end',()=>{
+  console.log('没有数据了')
+})
+```
+### 'error'事件
+当流因底层内部出错而不能产生数据、或推送无效的数据块时触发
+
+### 'readable'事件
+当流中有数据可供读取时触发。
+```
+const readable = getReadableStreamSomehow()
+readable.on('readable',function(){
+  // 有数据可读时触发
+  let data
+  while(data = this.read()){
+    console.log(data)
+  }
+})
+```
+'readable' 事件表明流有新的动态：要么有新的数据，要么到达流的尽头。 对于前者，stream.read() 会返回可用的数据。 对于后者，stream.read() 会返回 null。 例如，下面的例子中， foo.txt 是一个空文件:
+```
+const fs = require('fs');
+const rr = fs.createReadStream('foo.txt');
+rr.on('readable', () => {
+  console.log(`读取的数据: ${rr.read()}`);
+});
+rr.on('end', () => {
+  console.log('结束');
+});
+```
+
+### readable.pause()
+
+使流动模式的流停止触发'data'事件，并切换出流动模式。任何可用的数据都会保留再内部缓存中。
+```
+const readable = getReadableStreamSomehow()
+readable.on('data',(chunk)=>{
+  console.log(`接收到${chunk.length}个字节的数据`)
+  readable.pause()
+  console.log('暂停一秒')
+  setTimeout(function(){
+    console.log('数据开始流动了')
+    readable.resume()
+  },1000)
+})
+```
+
+### readbale.pipe()
+ - destination 数据写入的目标
+ - options 
+    - end 当读取器结束时终止写入器。
+ - 返回目标可写流，如果时Duplex流或者是Transform流则可以形成管道链
+ 绑定可写流到可读流，将可读流自动切换到流动模式，并将可读流的所有数据推送到绑定的可写流。数据流会被自动管理，所以即使可读流更快，目标可写流也不会
+ 超负荷。
+
+例子: 将可读流的所有数据通过管道推送到file.txt文件:
+```
+const readable = getReadableStreamSomehow()
+const writeable = fs.createWriteStream('file.text')
+reable.pipe(writable)
+```
+可以在单个可读流上绑定多个可写流
+
+readable.pipe() 会返回目标流的引用(注意是目标流的引用)，这样就可以对流进行链式地管道操作:
+```
+const fs = require('fs');
+const r = fs.createReadStream('file.txt');
+const z = zlib.createGzip();
+const w = fs.createWriteStream('file.txt.gz');
+r.pipe(z).pipe(w);
+```
+如果可读流发生错误，目标可写流不会自动关闭，需要手动关闭所有流以避免内存泄漏。
+
+### readable.read()
+- size 要读取的数据的字节数
+从内部缓冲拉取并返回数据。如果没有可读的数据则返回null,默认情况下readable.read()返回的数据对象是buffer对象，除非使用readable.setEconding()指定字符编码或者流处于对象模式。
+
+如果可读的数据不超过size的字节数，则返回内部缓冲剩余的数据。
+
+如果流已经结束则返回null
+
+如果没有指定size参数，则返回内部缓冲中的所有数据
+
+readable.read()应该只对处于暂停模式的可读流进行操作。在流动模式中，readable.read会自动调用直到内部缓冲的数据被耗尽
+```
+const readable = getReadableSreamSomehow()
+readable.on('readable',()=>{
+  let chunk
+  while(null !== (chunk = readable.read())){
+    console.log(`接收到 ${chunk.length} 字节的数据`)
+  }
+})
+```
+### readable.readableLength
+返回队列中准备读取的字节数
+
+### readable.resume()
+返回 this
+将被暂停的流恢复流动，触发'data'事件
+
+readable.resume() 使用场景 可以用来充分消耗流中的数据，但无需处理任何数据
+```
+getReadableStreamSomehow()
+  .resume()
+  .on('end', () => {
+    console.log('到达流的尽头，但无需读取任何数据');
+  });
 ```
