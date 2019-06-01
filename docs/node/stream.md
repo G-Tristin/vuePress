@@ -325,3 +325,149 @@ getReadableStreamSomehow()
     console.log('到达流的尽头，但无需读取任何数据');
   });
 ```
+### readable.setEncoding
+为从可读流读取的数据设置字符编码
+
+默认情况下没有字符编码，流返回的是Buffer对象。如果设置了字符编码，则流数据返回自定编码的字符串。例如，调用readable.setEconding('utf-8')会将数据解析为UTF-8数据，返回字符串，调用readable.setEconding('hex')则会将数据编码成十六进制字符串。
+
+```
+const readable = getReadableStreamSomehow()
+readable.setEconding('UTF-8')
+readable.on('data',(chunk)=>{
+  assert.equal(typeof chunk ,'string')
+  console.log('读取到**个字符的字符串数据'，chunk.length)
+})
+```
+
+### readable.unpipe
+
+- destination 要移除管道的可写流
+
+解除之前使用pipe绑定的可写流
+如果没有指定destination 则解绑所有通道
+如果指定了destination 但它没有建立通道，那么不起任何作用
+```
+const fs = require('fs')
+const readable = getReadableStreamSomehow()
+const writeable = fsl.createWriteStream('flie.text')
+readable.pipe(writeable)
+setTimeOut(()=>{
+  console.log('停止写入 file.text')
+  readable.unpipe(writeable)
+  console.log('手动关闭文件流')
+  readable.end()
+},1000)
+```
+
+### readable.unshift
+- chunk 要推回可读队列的数据块。对于非对象模式的流，chunk必须是字符串，Buffer或者uint8Array。对于对象模式的流，chunk可以是任何值，除了null
+作用:
+
+将数据块推回内部缓冲。可用于以下情景:正被消费中的流需要将一些已经被拉出的数据重置为未消费状态，以便这些数据传送给其他方。
+
+触发'end'事件或抛出运行错误后，不能再雕鹰readable.unshift()
+
+使用stream.unshift()的开发者可以烤炉切换到transform流。
+
+## 双工流或者转换流
+
+双工流 同时实现了Readable和writeable的接口的流 也称Duplex流
+
+Duplex流的例子包括
+
+- TCP socket
+- zlib 流
+- crypto 流
+
+## Stream.transform 类
+
+转换流 也是双工流的一种，但它的输入和输出是相关联的。与双工流一样 transform流也同样实现了Readable和writeable的接口
+
+transform流的例子包括
+- zlib 流
+- crypto 流
+
+## transform.destory
+
+销毁流，并触发'error'事件。调用该方法后transform流会释放全部内部资源。实现者不要重写该方法，而应该实现readable_destroy().Transform流的_destroy()方法的默认实现会触发'close'事件。
+
+## stream.finished(stream ,callback) 
+ - stream 可写流或者可读流
+ - callback 通知回调函数
+当流不再可读，可写、发生错误、或提前关闭，通过该函数获得通知
+```
+const { finished } = require('stream');
+
+const rs = fs.createReadStream('archive.tar');
+
+finished(rs, (err) => {
+  if (err) {
+    console.error('流发生错误', err);
+  } else {
+    console.log('流已读取完');
+  }
+});
+
+rs.resume(); // 开始读取流。
+```
+
+主要用于处理流被提前销毁(如http请求被中止)等异常情况，此时流不会触发'end'或'finish'事件。
+
+finished接口也可以promise化
+```
+const finished = util.promisify(stream.finished);
+
+const rs = fs.createReadStream('archive.tar');
+
+async function run() {
+  await finished(rs);
+  console.log('流已读取完');
+}
+
+run().catch(console.error);
+rs.resume(); // 开始读取流
+```
+
+## stream.pipeline(...stream[,callback])
+
+- ...stream 要用管道连接的二个或者多个流
+- callback 通知回调函数
+
+使用管道连接多个流，并传递错误与完成清理工作，当管道连接完成时通知回调函数
+```
+const { pipeline } = require('stream');
+const fs = require('fs');
+const zlib = require('zlib');
+
+// 使用 pipeline 接口连接多个流，并在管道连接完成时获得通知。
+// 使用 pipeline 可以高效地压缩一个可能很大的 tar 文件：
+
+pipeline(
+  fs.createReadStream('archive.tar'),
+  zlib.createGzip(),
+  fs.createWriteStream('archive.tar.gz'),
+  (err) => {
+    if (err) {
+      console.error('管道连接失败', err);
+    } else {
+      console.log('管道连接成功');
+    }
+  }
+);
+```
+pipeline 接口也可以Promise化:
+```
+const pipeline = util.promisify(stream.pipeline);
+
+async function run() {
+  await pipeline(
+    fs.createReadStream('archive.tar'),
+    zlib.createGzip(),
+    fs.createWriteStream('archive.tar.gz')
+  );
+  console.log('管道连接成功');
+}
+
+run().catch(console.error);
+```
+ 
