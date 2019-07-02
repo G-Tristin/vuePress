@@ -4,7 +4,8 @@ module.exports = {
 	themeConfig: {
 		nav: [{
 				text: '前端',
-				items: [{
+				items: [
+					{
 						text: 'HTML',
 						link: '/home/html5'
 					},
@@ -31,6 +32,10 @@ module.exports = {
 					{
 						text:'babel',
 						link:'/home/babel'
+					},
+					{
+						text:'ts',	
+						link:'/home/ts'
 					}
 				]
 			},
@@ -61,8 +66,9 @@ module.exports = {
 		],
 		sidebarDepth: 1,
 		sidebar: {
+			'/前端/':['html5', 'css', 'javascript', 'gulp', 'webpack', 'polyfill','babel','context','ts'],
 			'/guide/': ['', 'one', 'markdown'],
-			'/home/': ['html5', 'css', 'javascript', 'gulp', 'webpack', 'polyfill','babel','context'],
+			'/home/': ['html5', 'css', 'javascript', 'gulp', 'webpack', 'polyfill','babel','context','ts'],
 			'/vue/': ['', 'first','lib-flexible', 'vueLoad'],
 			'/ES6/': ['', 'object','es6class','es6class-extend'],
 			'/node/': ['','buffer','process' ,'childProcess','stream','commonjs', 'node基本模块', 'node输入输出流', 'http服务', 'express', 'express静态资源处理', 'koa', 'npm'],
