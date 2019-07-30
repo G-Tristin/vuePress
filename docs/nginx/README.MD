@@ -105,6 +105,11 @@ location [modifier] uri{...}
 2. ^=
 3. ~
 
+### root指令
+设置根目录 一般在location当中使用
+
+### index指令
+设置默认页  一般也在location当中使用
 ### vaild_referers指令
 用来校验http请求头中的referer是否有效
 ```
@@ -213,3 +218,8 @@ server {
   }	
 }
 ```
+
+## 参考链接
+
+[知乎](https://zhuanlan.zhihu.com/p/24524057?refer=wxyyxc1992)
+[配置杂记](https://wenjs.me/p/note-of-nginx-configure)
