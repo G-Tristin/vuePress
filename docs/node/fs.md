@@ -109,16 +109,16 @@ fs.open('./text.txt', 'r', function(err, fd) {
 - callback
   - err 错误信息
 
-2. fs.rename(oldPath,newPath,callback) 对文件重命名
+### fs.rename(oldPath,newPath,callback) 对文件重命名
 
-3. fs.stat(path,options,callback) 该方法一般用于查看被打开的是文件还是文件夹
+### fs.stat(path,options,callback) 该方法一般用于查看被打开的是文件还是文件夹
 - callback 
  - err
  - stats  ---是一个fs.Stats对象
 不建议在调用 fs.open()、 fs.readFile() 或 fs.writeFile() 之前使用 fs.stat() 检查文件是否存在。 而是应该直接打开、读取或写入文件，如果文件不可用则处理引发的错误。
 要检查文件是否存在但随后并不对其进行操作，则建议使用 fs.access()。
 
-4. fs.watch(fileName,options,listener)
+### fs.watch(fileName,options,listener)
 - options
  - persistent 如果文件已经被监视,进程是否应继续进行 默认值true
  - recursive 指示应监视所有子目录 默认值false
@@ -138,7 +138,7 @@ fs.open('./text.txt', 'r', function(err, fd) {
 
 监听器回调绑定在由 fs.FSWatcher触发的change事件上，但它与eventType的'change'值不是一回事
 
-5. fs.watchFile(filename,options,listener)
+### fs.watchFile(filename,options,listener)
 
 - options 
  - presistent 如果文件已经被监视,进程是否应继续进行 默认值true
@@ -154,3 +154,137 @@ fs.watchFile('message.text', (curr, prev) => {
 });
 ```
 这些 stat 对象是 fs.Stat 的实例。
+
+### fs.appendFile(path,data,optiions,callback)
+
+- path 文件名或者文件描述符
+- data 将要被追加到目标文件的数据资源 string|buffer
+- options 
+  - enconding 编码方式 默认utf-8
+  - mode 权限值 默认O066
+  - flag 文件系统标志 默认'a'
+- callback 
+  - err 错误
+异步的将数据追加到目标文件当中,如果文件尚不存在则创建文件。data可以是字符串或者buffer。
+
+## 读写文件当中的流
+
+### fs.createReadstream(path,options)  
+ - path string|buffer|url
+ - options string | object
+  - flag 文件系统标识符 默认'r'
+  - encoding 默认为null
+  - fd 默认为null
+  - mode 默认为O066 文件的权限值
+  - autoClose 默认值为true 出现错误或者读取结束会自动关闭流
+  - start 
+  - end 默认值 infinity
+  - highWaterMark 默认值是64*1024
+
+返回值为 fs.ReadStream 
+
+该方法只是创建了一个可读流，但是监听的事件在readStream实例上
+
+与可读流的16KB的默认highWaterMark不同，此方法返回的流具有64kb的默认值
+
+options可以包括start和end值,以从当前文件中读取一定范围的字节而不是读取整个文件。start和end都包含在内
+并且statr的默认值为0。如果指定了fd并且start被省略或是undefined,则fs.createReadStream()从当前文件位置开始顺序读取。enconding可以是buffer接收的任何一种字符编码。
+
+如果指定了fd,则ReadStream将忽略path参数并使用指定的文件描述符。
+
+### fs.ReadStream类
+
+通过fs.createReadStream创建的可读流的返回值都是fs.ReadStream类的实例。所以都可以调用到该类底下的方法。
+
+close事件 fs.ReadStream的底层描述符关闭时触发
+
+open事件 fs.ReadStream的文件描述符打开时触发
+
+ready事件 fs.ReadStream准备好使用时触发
+
+data事件 fs.ReadStream读取完文件时触发
+
+```
+const fs = require('fs')
+const readStream =  fs.createReadStream('./message1','utf-8')
+readStream.on('open',(fd)=>{
+  console.log('文件被打开了' + fd)
+})
+readStream.on('data',(chunk)=>{
+  console.log(chunk)
+})
+readStream.on('err',(err)=>{
+  console.log('文件读取失败' + err)
+})
+readStream.on('colse',()=>{
+  console.log('文件被关闭')
+})
+readStream.on('end',()=>{
+  console.log('文件读取结束')
+})
+```
+
+### fs.createWriteStream
+ - path string|buffer|url
+ - options string|object
+  - flags 文件系统标识 默认值为'w'
+  - encoding 字符集 utf-8
+  - mode 文件的权限 默认值O066
+  - autoClose 是否自动关闭 true
+  - start 
+
+该方法只是创建了一个可写流，但是监听的事件在writeStream实例上
+
+options可以包括一个start选项，允许在文件开头之后的某个位置写入文件，允许的值范围在[0,Number.MAX_SAFE_INTEGER]范围内。如果要修改文件而不是覆盖它，则flags需要为r+而不是默认的w默认。
+encoding可以是buffer接受的任何一种字符编码。
+
+与 ReadStream 类似，如果指定了 fd，则 WriteStream 将忽略 path 参数并使用指定的文件描述符。
+
+### fs.WriteStream类
+
+通过fs.createWriteStream创建的可写流的返回值都是fs.WriteStream类的实例。所以都可以调用到该类底下的方法。
+
+#### 事件
+
+err事件 读取文件错误时触发的事件
+
+open 被读取文件被打开时触发的事件
+
+finish 文件写入完成时触发的事件
+
+close 被写入的文件已经关闭
+
+#### 方法
+
+writeStream.write('这是我要做的测试内容') 写入数据到文件，参数代表写入的数据
+
+writeStream.end() 停止写入数据到文件
+
+```
+const fs=require('fs');
+const path=require('path');
+let writeStream=fs.createWriteStream('./test/b.js',{encoding:'utf8'});
+ 
+//写入文件发生错误事件
+writeStream.on('error', (err) => {
+    console.log('发生异常:', err);
+});
+//已打开要写入的文件事件
+writeStream.on('open', (fd) => {
+    console.log('文件已打开:', fd);
+});
+//文件已经就写入完成事件
+writeStream.on('finish', () => {
+    console.log('写入已完成..');
+    console.log('读取文件内容:', fs.readFileSync('./test/b.js', 'utf8')); //打印写入的内容
+    console.log(writeStream);
+});
+ 
+//文件关闭事件
+writeStream.on('close', () => {
+    console.log('文件已关闭！');
+});
+ 
+writeStream.write('这是我要做的测试内容');
+writeStream.end() 结束写入数据到文件
+```
