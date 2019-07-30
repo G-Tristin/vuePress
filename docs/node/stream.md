@@ -10,25 +10,26 @@
 ## 对象模式
 Node.js创建的流都是运行在字符串和Buffer(或者utf8Array)上。流的实现也可以使用其它类型的javascript值。这些流会以对象模式进行操作。
 
+## 缓冲
+可写流和可读流都会在内部的缓冲器中存储数据，可以分别使用writeable.writeableBuffer或readableBuffer来获取。
+
+可缓冲的数据大小取决于传入流构造函数的highWaterMark选项。对于普通的流，highWaterMark指定了字节总数。对于对象模式的流，highWaterMark指定了对象的
+总数
+
+当调用stream.push(chunk)时，数据会被缓冲到可读流当中。如果流的消费者没有调用stream.read()，则数据会保留在内部队列直到被消费。
+
+一旦内部的可读缓冲的总大小达到highWaterMark指定的阈值时，流会暂时停止从底层资源读取数据，直到当前缓冲的数据被消费(也就是说，流会停止调用内部的用于填充可读
+缓冲的readable_read())
+
+当调用writeable.write(chunk)时，数据会被缓冲在可写流当中。当内部的可写缓冲的总大小小于highWaterMark设置的阈值时，调用writeable.write()会返回true。一旦
+内部的缓冲大小达到或者超过highWaterMark时，会返回false。
+
+stream API的主要目的，特别是stream.pipe(),是为了限制数据的缓冲到可接受的程度，也就是读写速度不一致的源头与目的地不会压垮内存
+
 ## 流的运作
 可写流会暴露了一些方法，比如 write() 和 end() 用于写入数据到流。
-而当数据可以从流读取时，可读流h会使用EventEmitter API来通知应用程序。
+而当数据可以从流读取时，可读流会使用EventEmitter API来通知应用程序。
 对于只需写入数据到流或从流消费数据的应用程序，并不需要直接实现流的接口，通常也不需要调用 require('stream')
-
-## 缓冲
-
-可读流和可写流都会在内部的缓冲器中存储数据，可以使用readable.readableBuffer或者writeable.writeableBuffer来获取(看来还是用Buffer来充当缓冲区)。
-
-可缓冲的数据大小取决于传入流构造函数的highWaterMark选项。对于普通的流hightWaterMark指定了字节的总数。对于对象模式的流，highWaterMark指定了对象的总数。
-
-当调用stream.push(chunk)时，数据会被缓冲在可读流。如果流的消费者没有调用stream.read(),则数据会被保存在内部队列中直至被消费。
-
-一旦内部的可读缓冲大小达到highWaterMark指定的阈值时，流会暂停从底部资源读取数据，直到当前缓冲的数据被消费。(也就是说，流会停止调用内部的用于填充可读缓冲的reabable._read)
-
-当调用writable.write(chunk)时，数据会被缓冲在可写流中。当内部的可写缓冲的总大小小于highWaterMark设置的阈值时，调用writable.write()会返回true。一旦内部缓冲的大小达到或者超过highWaterMark时，则会返回false。
-
-stream API 的主要目标，特别是 stream.pipe()，是为了限制数据的缓冲到可接受的程度，也就是读写速度不一致的源头与目的地不会压垮内存。
-
 
 ## 可写流
 可写流时是对数据要被写入的目的地的一种抽象
@@ -201,7 +202,10 @@ pass.resume(); // 必须调用它才会触发 'data' 事件。 data事件的触�
 
 当流将数据块传送给消费者后触发。
 
- 当调用 readable.pipe()， readable.resume() 或绑定监听器到 'data' 事件时，流会转换到流动模式。 当调用 readable.read() 且有数据块返回时，也会触发 'data' 事件。
+当调用 readable.pipe()， readable.resume() 或绑定监听器到 'data' 事件时，流会转换到流动模式。 当调用 readable.read() 且有数据块返回时，也会触发 'data' 事件。
+
+这里的readable指的时可读流 比如使用fs.createReadStream创建出来的流
+
 如果使用 readable.setEncoding() 为流指定了默认的字符编码，则监听器回调传入的数据为字符串，否则传入的数据为 Buffer。
 ```
 const readable = getReadableStreamSomehow();
