@@ -196,6 +196,8 @@ options可以包括start和end值,以从当前文件中读取一定范围的字�
 
 通过fs.createReadStream创建的可读流的返回值都是fs.ReadStream类的实例。所以都可以调用到该类底下的方法。
 
+并且可以使用到可读流下面的所有方法具体可在stream那一章观看
+
 close事件 fs.ReadStream的底层描述符关闭时触发
 
 open事件 fs.ReadStream的文件描述符打开时触发
@@ -243,6 +245,8 @@ encoding可以是buffer接受的任何一种字符编码。
 ### fs.WriteStream类
 
 通过fs.createWriteStream创建的可写流的返回值都是fs.WriteStream类的实例。所以都可以调用到该类底下的方法。
+
+并且可以使用到可写流下面的所有方法具体可在stream那一章观看
 
 #### 事件
 
