@@ -5,40 +5,7 @@ module.exports = {
 		nav: [
 			{
 				text: 'web',
-				items: [
-					{
-						text: 'HTML',
-						link: '/home/html5'
-					},
-					{
-						text: 'CSS',
-						link: '/home/css'
-					},
-					{
-						text: 'Javascript',
-						link: '/home/javascript'
-					},
-					{
-						text: 'Gulp',
-						link: '/home/gulp'
-					},
-					{
-						text: 'Webpack',
-						link: '/home/webpack'
-					},
-					{
-						text: 'polyfill',
-						link: '/home/polyfill'
-					},
-					{
-						text:'babel',
-						link:'/home/babel'
-					},
-					{
-						text:'ts',	
-						link:'/home/ts'
-					}
-				]
+				link:'/home/'
 			},
 			{
 				text: 'Vue',
@@ -67,9 +34,8 @@ module.exports = {
 		],
 		sidebarDepth: 1,
 		sidebar: {
-			'/web/':['html5', 'css', 'javascript', 'gulp', 'webpack', 'polyfill','babel'],
 			'/guide/': ['', 'markdown'],
-			'/home/': ['html5', 'css', 'javascript', 'gulp', 'webpack', 'polyfill','babel','context','ts'],
+			'/home/': ['','html5', 'css', 'javascript', 'gulp', 'webpack', 'polyfill','babel'],
 			'/vue/': ['', 'base','component','lib-flexible', 'vueLoad'],
 			'/ES6/': ['', 'object','es6class','es6class-extend'],
 			'/node/': ['','buffer','process' ,'childProcess','stream','commonjs', 'node基本模块', 'node输入输出流', 'http服务', 'express', 'express静态资源处理', 'koa', 'npm'],
