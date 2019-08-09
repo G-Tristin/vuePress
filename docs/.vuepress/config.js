@@ -70,7 +70,7 @@ module.exports = {
 			'/web/':['html5', 'css', 'javascript', 'gulp', 'webpack', 'polyfill','babel'],
 			'/guide/': ['', 'markdown'],
 			'/home/': ['html5', 'css', 'javascript', 'gulp', 'webpack', 'polyfill','babel','context','ts'],
-			'/vue/': ['', 'first','lib-flexible', 'vueLoad'],
+			'/vue/': ['', 'base','component','lib-flexible', 'vueLoad'],
 			'/ES6/': ['', 'object','es6class','es6class-extend'],
 			'/node/': ['','buffer','process' ,'childProcess','stream','commonjs', 'node基本模块', 'node输入输出流', 'http服务', 'express', 'express静态资源处理', 'koa', 'npm'],
 			'/commander/': ['', 'option与action', 'publish'],

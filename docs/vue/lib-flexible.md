@@ -1,4 +1,4 @@
-# lib-flexible
+# 移动端适配(lib-flexible)
 vue项目中使用lib-flexible解决移动端适配的问题
 1.引入模块
 ```
