@@ -1,14 +1,11 @@
 # stream - 流
-流(stream)是 Node.js 中处理流式数据的抽象接口。 所有的流都是 EventEmitter 的实例。也就是可以调用EventEmitter的API。
+流(stream)是 Node.js 中处理流式数据的抽象接口。 所有的流都是 EventEmitter 的实例。也就是可以**调用EventEmitter的API**。
 
 流的基本类型
-- 可写入数据的流
-- 可读取数据的流
-- 可读可写的数据流
+- 可写流
+- 可读流
+- 可读可写的流
 - 在读写过程中可以修改或者转换数据的流
-
-## 对象模式
-Node.js创建的流都是运行在字符串和Buffer(或者utf8Array)上。流的实现也可以使用其它类型的javascript值。这些流会以对象模式进行操作。
 
 ## 缓冲
 可写流和可读流都会在内部的缓冲器中存储数据，可以分别使用writeable.writeableBuffer或readableBuffer来获取。
@@ -48,11 +45,15 @@ stream API的主要目的，特别是stream.pipe(),是为了限制数据的缓�
 
 尽管可写流的具体实例可能略有差别，但所有的可写流都遵循同一基本的使用模式，如以下例子所示:
 ```
+// 获取可读流的某种方式
 const myStream = getWritableStreamSomehow();
 myStream.write('一些数据');
 myStream.write('更多数据');
 myStream.end('完成写入数据');
 ```
+## 简述node当中事件与方法的区别
+
+在node当中类的事件就是可以使用*EventEmitter*类的方式给实例添加事件形如`reader.on('close',()=>{...})`
 
 ### 'close'事件
 当流或者其底层资源被关闭时触发。表明不会再触发其它事件，也不再发生操作。但不是所有的可写流都会触发该事件。
@@ -117,7 +118,11 @@ reader.pipe(writer);
 ```
 
 ### writable.cork方法
-强制把所有写入的数据都缓存到内存中。当调用stream.uncork()或者stream.end()时，数据才会被输出。
+强制把所有写入的数据都缓存到内存中。当调用stream.uncork()或者`stream.end() == writable.end()` 时，数据才会被输出。
+
+eg:
+
+stream一般指流的统称，这里的stream.end()中stream指的可能是可写流，也可能是可写可读流或转换流。
 
 ### writable.end方法
 调用 writable.end() 表明已没有数据要被写入可写流。 可选的 chunk 和 encoding 参数可以在关闭流之前再写入一块数据。 如果传入了 callback 函数，则会做为监听器添加到 'finish' 事件。

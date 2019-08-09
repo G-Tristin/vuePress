@@ -1,6 +1,6 @@
 ## UMD库
 
-既可以通过<script/> 标签引入，又可以通过import导入的库，称为UMD库。相比于npm包类型的声明文件，我们需要额外声明一个全局变量，为了实现这种方式，ts提供了新的语法。export as namespace
+既可以通过`<script/>` 标签引入，又可以通过import导入的库，称为UMD库。相比于npm包类型的声明文件，我们需要额外声明一个全局变量，为了实现这种方式，ts提供了新的语法。export as namespace
 
 ### export as namespace
 

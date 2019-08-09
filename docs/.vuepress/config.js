@@ -1,9 +1,10 @@
 module.exports = {
-	title: '修罗之路',
-	description: '做想做的事，爱想爱的人',
+	title: '梦想之路',
+	description: '起风了，依旧要坚强的活下去',
 	themeConfig: {
-		nav: [{
-				text: '前端',
+		nav: [
+			{
+				text: 'web',
 				items: [
 					{
 						text: 'HTML',
@@ -66,8 +67,8 @@ module.exports = {
 		],
 		sidebarDepth: 1,
 		sidebar: {
-			'/前端/':['html5', 'css', 'javascript', 'gulp', 'webpack', 'polyfill','babel','context','ts'],
-			'/guide/': ['', 'one', 'markdown'],
+			'/web/':['html5', 'css', 'javascript', 'gulp', 'webpack', 'polyfill','babel'],
+			'/guide/': ['', 'markdown'],
 			'/home/': ['html5', 'css', 'javascript', 'gulp', 'webpack', 'polyfill','babel','context','ts'],
 			'/vue/': ['', 'first','lib-flexible', 'vueLoad'],
 			'/ES6/': ['', 'object','es6class','es6class-extend'],

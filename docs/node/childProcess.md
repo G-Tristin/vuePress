@@ -159,3 +159,29 @@ const child = execFile('node', ['--version'], (error, stdout, stderr) => {
 特性:
 
 child_process.fork() 方法是 child_process.spawn() 的一个特例，专门用于衍生新的 Node.js 进程。
+
+  ## 错误处理
+
+  错误处理包含两种场景，这两种场景有不同的处理方式。
+
+  - 场景1：命令本身不存在，创建子进程报错
+  - 场景2：命令存在，但运行过程中出错
+
+  ```
+  var spawn = require('child_process').spawn
+  var child = spawn('bad_command')
+  child.on('error',(err) =>{ 
+    console.log('Faild to start child process 1')
+  })
+  以上是第一种错误处理的方式(针对于第一个进程)
+
+  以下是第二种错误处理的方式 并且这种方式可以获取进程中的错误信息
+  var child2 = spawn('ls',['nonexistFile'])
+  child2.stderr.on('data',function(data){
+    console.log('Error msg from process:2' + data)
+  })
+
+  以下是第一种错误处理的方式(针对于第二个进程)
+  child2.on('error',(err)=>{
+    console.log('Failed to start child process:2')
+  })
