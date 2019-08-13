@@ -4,11 +4,11 @@ heroImage: /fly.jpg
 actionText: GO →
 actionLink: /guide/
 features:
-- title: 前端生涯
+- title: 态度
   details: 看不懂就多看几遍吧，反正都看了
-- title: 心得
+- title: 品行
   details: 冷静、耐心。
-- title: 高性能
-  details: 学习的道路上充满了未知的坑，你不一个个踩，那么下一个坑还是会等着你的。
+- title: 心性
+  details: 外柔内柔，让人欺。外刚内柔，则无用。外刚内刚，反易折。外柔内刚，才堪用。
 footer: 我的成长之路
 ---

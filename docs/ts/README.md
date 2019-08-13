@@ -1,15 +1,16 @@
-# ts学习记录
-
-## ts类型
+# ts类型
 
 ### 元组 Tuple
 
+在TS当中数组合并了相同类型的对象，而元组则是合并了不同类型的对象。
+
 元组类型允许表示一个已知元素数量和类型的数组，各元素的类型不必相同。比如，你可以定义一对值分别为Sting和Number类型的元组
 ```
-let x:[number string]
+let x:[number,string] = [3,'4']
+在此例当中 我们定义了 x 为元组，它的值是[3,'4']。它的类型校验是[number,string]。
 ```
 
-当访问一个越界的元素，会使用联合类型代替
+当访问一个越界的元素，它的类型会被限制为元组中每个类型的联合类型
 ```
 x[3] = 'world'; // OK, 字符串可以赋值给(string | number)类型
 console.log(x[5].toString()); // OK, 'string' 和 'number' 都有 toString
@@ -17,7 +18,12 @@ x[6] = true; // Error, 布尔不是(string | number)类型
 ```
 
 ### 枚举
-enum类型是对JavaScript标准类型的一个补充。想C等其他语言一样，使用枚举类型可以为一组数值赋予友好的名字
+枚举类型是对JavaScript标准类型的一个补充。向C等其他语言一样，使用枚举类型可以为一组数值赋予友好的名字。
+
+枚举类型通过`enum`关键字来定义
+```
+enum Days { Sum, Mon, Tue, Wed, Thu, Fri, Sat }
+```
 
 #### 枚举分类 
 1.普通枚举与常数枚举的区别
@@ -30,9 +36,11 @@ enum类型是对JavaScript标准类型的一个补充。想C等其他语言一�
 
 ### voild
 voild表示没有任何类型,当一个函数没有返回值的时候，可以将其的返回值类型设置为void
-function warnUser();vaild{
+```
+function warnUser():vaild{
   console.log('This is my warning message')
 }
+```
 
 ### never
 never类型表示的是那些永远不存在的值的类型。例如，never类型是那些总是会抛出异常或根本就不会有返回值的函数表达式或者箭头函数表达式的返回值类型。
