@@ -8,15 +8,13 @@
 - 在读写过程中可以修改或者转换数据的流
 
 ## 缓冲
-可写流和可读流都会在内部的缓冲器中存储数据，可以分别使用writeable.writeableBuffer或readableBuffer来获取。
+可写流和可读流都会在内部的缓冲器中存储数据，可以分别使用writeable.writeableBuffer或readable.readableBuffer来获取。
 
-可缓冲的数据大小取决于传入流构造函数的highWaterMark选项。对于普通的流，highWaterMark指定了字节总数。对于对象模式的流，highWaterMark指定了对象的
-总数
+可缓冲的数据大小取决于传入流**构造函数**的highWaterMark选项。对于普通的流，highWaterMark指定了字节总数。对于对象模式的流，highWaterMark指定了对象的总数。
 
 当调用stream.push(chunk)时，数据会被缓冲到可读流当中。如果流的消费者没有调用stream.read()，则数据会保留在内部队列直到被消费。
 
-一旦内部的可读缓冲的总大小达到highWaterMark指定的阈值时，流会暂时停止从底层资源读取数据，直到当前缓冲的数据被消费(也就是说，流会停止调用内部的用于填充可读
-缓冲的readable_read())
+一旦内部的可读缓冲的总大小达到highWaterMark指定的阈值时，流会暂时停止从底层资源读取数据，直到当前缓冲的数据被消费(也就是说，流会停止调用内部的用于填充可读缓冲的readable._read())
 
 当调用writeable.write(chunk)时，数据会被缓冲在可写流当中。当内部的可写缓冲的总大小小于highWaterMark设置的阈值时，调用writeable.write()会返回true。一旦
 内部的缓冲大小达到或者超过highWaterMark时，会返回false。
@@ -53,39 +51,10 @@ myStream.end('完成写入数据');
 ```
 ## 简述node当中事件与方法的区别
 
-在node当中类的事件就是可以使用*EventEmitter*类的方式给实例添加事件形如`reader.on('close',()=>{...})`
+在node当中类的事件就是可以使用*EventEmitter*类的使用方式给实例添加事件形如`reader.on('close',()=>{...})`
 
 ### 'close'事件
 当流或者其底层资源被关闭时触发。表明不会再触发其它事件，也不再发生操作。但不是所有的可写流都会触发该事件。
-
-### 'drain'事件 --- 重要
-如果调用stream.write(chunk)返回false，则当可以继续写入数据到流时会触发'drain'事件。
-```
-// 向可写流中写入数据一百万次。
-// 留意背压（back-pressure）。
-function writeOneMillionTimes(writer, data, encoding, callback) {
-  let i = 1000000;
-  write();
-  function write() {
-    let ok = true;
-    do {
-      i--;
-      if (i === 0) {
-        // 最后一次写入。
-        writer.write(data, encoding, callback);
-      } else {
-        // 检查是否可以继续写入。 
-        // 不要传入回调，因为写入还没有结束。
-        ok = writer.write(data, encoding);
-      }
-    } while (i > 0 && ok);
-    if (i > 0) {
-      // 被提前中止。
-      writer.once('drain', write); // writer是一个可写流 而所有的流都是EventEmitter实例，所以我们可以通过once方法给流添加一次性事件'drain'，而该事件的回调函数就是再次执行write--也就是继续使用流写入文件。因为drain方法的触发时机就是可以继续写入数据到流。
-    }
-  }
-}
-```
 
 ### 'error'事件
 当写入数据错误时触发，当触发error事件时，流还没有被关闭。
@@ -127,7 +96,7 @@ stream一般指流的统称，这里的stream.end()中stream指的可能是可�
 ### writable.end方法
 调用 writable.end() 表明已没有数据要被写入可写流。 可选的 chunk 和 encoding 参数可以在关闭流之前再写入一块数据。 如果传入了 callback 函数，则会做为监听器添加到 'finish' 事件。
 
-### writbale.write()
+### writable.write()
 
 - chunk 要写入的数据
 - encoding 如果chunk是字符串，则指定字符编码
@@ -136,7 +105,58 @@ return  Boolean
 
 writable.write() 写入数据到流，并在数据被完全处理之后调用 callback。 如果发生错误，则 callback 可能被调用也可能不被调用。 为了可靠地检测错误，可以为 'error' 事件添加监听器。
 
-在接收了 chunk 后，如果内部的缓冲小于创建流时配置的 highWaterMark，则返回 true 。 如果返回 false ，则应该停止向流写入数据，直到 'drain' 事件被触发。
+在接收了chunk后，如果内部的缓冲小于创建流时配置的highWaterMark，则返回 true。如果返回false,则应该停止向流写入数据，直到'drain'事件被触发。
+
+当流还未被排空时，调用write()会缓冲chunk，并返回false。一旦所有当前缓冲的数据块都被排空了(被操作系统接收并传输)，则触发'drain'事件。建议一旦write()返回false，则不再写入任何数据块，直到'drain'事件被触发。当流还未被排空时，也是可以调用write()，Node.js会缓冲所有被写入的数据块，直到达到最大内存占用，这时它会无条件中止。甚至在它中止之前，高内存占用将会导致垃圾回收器的性能变差和RSS变高（即使内存不再需要，通常也不会被释放回系统）。如果远程的另一端没有读取数据，TCP 的 socket可能永远也不会排空，所以写入到一个不会排空的socket可能会导致远程可利用的漏洞。
+
+### 'drain'事件 --- 重要
+drain(流干)事件将配合stream.write使用。
+
+drain事件的触发条件是，当缓存区有需要写入的数据并且当缓存区被清空时会触发drain事件。
+
+如果调用stream.write(chunk)返回false，则当可以继续写入数据到流时会触发'drain'事件。
+
+### 简述writable.write()方法与writable的drain事件
+
+writable.write()方法的返回值分为true或者false,当流的内部缓冲小于创建流时配置的highWaterMark时，它才会返true。当流的内部缓冲超过或者等于阈值时就会返回false，此时流
+依旧可以将缓冲区的数据写入到目标当中，但是我们应该主动的停止将数据写入到流，直到缓冲当中的数据被消耗，此时会触发drain事件，之后我们才可以再次往流当中写入数据。
+
+eg:
+
+```
+// 向可写流中写入数据一百万次。
+// 留意背压（back-pressure）。
+function writeOneMillionTimes(writer, data, encoding, callback) {
+  let i = 1000000;
+  write();
+  function write() {
+    let ok = true;
+    do {
+      i--;
+      if (i === 0) {
+        // 最后一次写入。
+        writer.write(data, encoding, callback);
+      } else {
+        // 检查是否可以继续写入。 
+        // 不要传入回调，因为写入还没有结束。
+        ok = writer.write(data, encoding);
+      }
+    } while (i > 0 && ok);
+    if (i > 0) {
+      // 被提前中止。
+      // 中止的原因是writer.write返回值为false --就是当流的缓冲区数据达到阈值时的返回值
+      // 此时流还是会给目标当中写入数据data，但是node的stream模块建议我们不再将数据写入到流的缓冲区
+      // 直到流的缓冲区的数据被消耗完，此时触发drain事件，这时我们可以再次往流当中写入数据
+      //而所有的流都是EventEmitter实例，所以我们可以通过once方法给流添加一次性事件'drain'
+      writer.once('drain', write); 
+      // 流触发了drain事件 说明流的缓冲区已经没有数据了，此时我们可以往流当中继续写入数据。
+    }
+  }
+}
+```
+
+注意：writable下的方法和事件都是针对流的，而流内部会把数据写入到对应的目标当中，比如我们创建一个fs的可写流，所有的流下的事件和方法都是针对这个流的。
+并且此时我们操作的数据都是写入到流当中的数据，最后流会把数据写入到目标文件中。
 
 ## 可读流
 可读流是对提供数据来源的一种抽象
