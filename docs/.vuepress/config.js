@@ -1,30 +1,65 @@
 module.exports = {
 	title: '梦想之路',
-	description: '起风了，依旧要坚强的活下去',
+	description: '起风了，任要坚强的活下去',
 	themeConfig: {
 		nav: [
 			{
-				text: 'web',
-				link:'/home/'
-			},
+        text: 'web',
+        items: [
+          { text: 'js', link: '/home/javascript' },
+					{ text: 'css', link: '/home/css' },
+					{ text: 'babel', link: '/home/babel' },
+					{ text: 'context', link: '/home/context' },
+					{ text: 'gulp', link: '/home/gulp' },
+					{ text: 'html5', link: '/home/html5' },
+					{ text: 'polyfill', link: '/home/polyfill' },
+					{ text: 'webpack', link: '/home/webpack' },
+        ]
+      },
 			{
 				text: 'Vue',
-				link: '/vue/'
+				items: [
+          { text: 'base', link: '/vue/base' },
+					{ text: 'component', link: '/vue/component' },
+					{ text: 'lib-flexible', link: '/vue/lib-flexible' },
+					{ text: 'vueload', link: '/vue/vueload' },
+        ]
 			},
 			{
 				text: 'React',
-				link: '/react/'
+				items: [
+          { text: '受控组件', link: '/react/受控组件' },
+					{ text: '状态提升与slot', link: '/react/状态提升与slot' },
+					{ text: 'redux', link: '/react/redux' },
+        ]
 			},
 			{
 				text: 'node',
-				link: '/node/'
+				items: [
+          { text: 'buffer', link: '/node/buffer' },
+					{ text: 'childProcess', link: '/node/childProcess' },
+					{ text: 'cluster', link: '/node/cluster' },
+					{ text: 'commonjs', link: '/node/commonjs' },
+					{ text: 'express', link: '/node/express' },
+					{ text: 'express静态资源处理', link: '/node/express静态资源处理' },
+					{ text: 'fs', link: '/node/fs' },
+					{ text: 'http服务', link: '/node/http服务' },
+					{ text: 'koa', link: '/node/koa' },
+					{ text: 'nginx', link: '/node/nginx' },
+					{ text: 'node基本模块', link: '/node/node基本模块' },
+					{ text: 'node输入输出流', link: '/node/node输入输出流' },
+					{ text: 'npm', link: '/node/npm' },
+					{ text: 'process', link: '/node/process' },
+					{ text: 'shell', link: '/node/shell' },
+					{ text: 'stream', link: '/node/stream' },
+        ]
 			},
 			{
 				text: 'ES6',
 				link: '/ES6/'
 			},
 			{
-				text: '命令行',
+				text: 'command',
 				link: '/commander/'
 			},
 			{
