@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>child_process - 子进程 | 梦想之路</title>
+    <meta name="description" content="起风了，任要坚强的活下去">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.48f274b5.css" as="style"><link rel="preload" href="/assets/js/app.81bc3037.js" as="script"><link rel="preload" href="/assets/js/27.aa4612c9.js" as="script"><link rel="prefetch" href="/assets/js/10.8def6c83.js"><link rel="prefetch" href="/assets/js/11.3457136c.js"><link rel="prefetch" href="/assets/js/12.dc2b72f6.js"><link rel="prefetch" href="/assets/js/13.1f2bc63e.js"><link rel="prefetch" href="/assets/js/14.f8c6043d.js"><link rel="prefetch" href="/assets/js/15.4e4477b7.js"><link rel="prefetch" href="/assets/js/16.6a2bc7b9.js"><link rel="prefetch" href="/assets/js/17.747feb28.js"><link rel="prefetch" href="/assets/js/18.b7868336.js"><link rel="prefetch" href="/assets/js/19.22f0aece.js"><link rel="prefetch" href="/assets/js/2.eb0bafce.js"><link rel="prefetch" href="/assets/js/20.1f9b3b2f.js"><link rel="prefetch" href="/assets/js/21.e49e09ed.js"><link rel="prefetch" href="/assets/js/22.95076785.js"><link rel="prefetch" href="/assets/js/23.562b717f.js"><link rel="prefetch" href="/assets/js/24.3952779a.js"><link rel="prefetch" href="/assets/js/25.6d8ed32c.js"><link rel="prefetch" href="/assets/js/26.c05cc220.js"><link rel="prefetch" href="/assets/js/28.ee39f9c7.js"><link rel="prefetch" href="/assets/js/29.da38b9b1.js"><link rel="prefetch" href="/assets/js/3.8c808b08.js"><link rel="prefetch" href="/assets/js/30.c25393bb.js"><link rel="prefetch" href="/assets/js/31.5de6002b.js"><link rel="prefetch" href="/assets/js/32.cc80342c.js"><link rel="prefetch" href="/assets/js/33.8527ac6b.js"><link rel="prefetch" href="/assets/js/34.53e2fb20.js"><link rel="prefetch" href="/assets/js/35.720df360.js"><link rel="prefetch" href="/assets/js/36.b3e6371a.js"><link rel="prefetch" href="/assets/js/37.7ba27e1a.js"><link rel="prefetch" href="/assets/js/38.da7b7ae2.js"><link rel="prefetch" href="/assets/js/39.4212980b.js"><link rel="prefetch" href="/assets/js/4.d51c0877.js"><link rel="prefetch" href="/assets/js/40.0897b6f1.js"><link rel="prefetch" href="/assets/js/41.4fb96b39.js"><link rel="prefetch" href="/assets/js/42.f6c4ec4b.js"><link rel="prefetch" href="/assets/js/43.851bd2e0.js"><link rel="prefetch" href="/assets/js/44.5c333ff9.js"><link rel="prefetch" href="/assets/js/45.80064017.js"><link rel="prefetch" href="/assets/js/46.f47eeceb.js"><link rel="prefetch" href="/assets/js/47.f5f401d6.js"><link rel="prefetch" href="/assets/js/48.6193479b.js"><link rel="prefetch" href="/assets/js/49.14a284fe.js"><link rel="prefetch" href="/assets/js/5.a22856c2.js"><link rel="prefetch" href="/assets/js/50.37548b37.js"><link rel="prefetch" href="/assets/js/51.0cbfdf9d.js"><link rel="prefetch" href="/assets/js/52.5a824704.js"><link rel="prefetch" href="/assets/js/53.9b1dab26.js"><link rel="prefetch" href="/assets/js/54.f931bf17.js"><link rel="prefetch" href="/assets/js/55.1518fcbb.js"><link rel="prefetch" href="/assets/js/56.fdb78d16.js"><link rel="prefetch" href="/assets/js/57.ca2be3fc.js"><link rel="prefetch" href="/assets/js/58.f0ed9c5e.js"><link rel="prefetch" href="/assets/js/59.190d46dc.js"><link rel="prefetch" href="/assets/js/6.3805a77d.js"><link rel="prefetch" href="/assets/js/7.4c7ada1d.js"><link rel="prefetch" href="/assets/js/8.534a355e.js"><link rel="prefetch" href="/assets/js/9.1d4c3048.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.48f274b5.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">梦想之路</span></a> <div class="links" style="max-width:nullpx;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">web</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/home/javascript.html" class="nav-link">js</a></li><li class="dropdown-item"><!----> <a href="/home/css.html" class="nav-link">css</a></li><li class="dropdown-item"><!----> <a href="/home/babel.html" class="nav-link">babel</a></li><li class="dropdown-item"><!----> <a href="/home/context.html" class="nav-link">context</a></li><li class="dropdown-item"><!----> <a href="/home/gulp.html" class="nav-link">gulp</a></li><li class="dropdown-item"><!----> <a href="/home/html5.html" class="nav-link">html5</a></li><li class="dropdown-item"><!----> <a href="/home/polyfill.html" class="nav-link">polyfill</a></li><li class="dropdown-item"><!----> <a href="/home/webpack.html" class="nav-link">webpack</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">Vue</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/vue/base.html" class="nav-link">base</a></li><li class="dropdown-item"><!----> <a href="/vue/component.html" class="nav-link">component</a></li><li class="dropdown-item"><!----> <a href="/vue/lib-flexible.html" class="nav-link">lib-flexible</a></li><li class="dropdown-item"><!----> <a href="/vue/vueload.html" class="nav-link">vueload</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">React</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/react/受控组件.html" class="nav-link">受控组件</a></li><li class="dropdown-item"><!----> <a href="/react/状态提升与slot.html" class="nav-link">状态提升与slot</a></li><li class="dropdown-item"><!----> <a href="/react/redux.html" class="nav-link">redux</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">node</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/node/buffer.html" class="nav-link">buffer</a></li><li class="dropdown-item"><!----> <a href="/node/childProcess.html" class="nav-link router-link-exact-active router-link-active">childProcess</a></li><li class="dropdown-item"><!----> <a href="/node/cluster.html" class="nav-link">cluster</a></li><li class="dropdown-item"><!----> <a href="/node/commonjs.html" class="nav-link">commonjs</a></li><li class="dropdown-item"><!----> <a href="/node/express.html" class="nav-link">express</a></li><li class="dropdown-item"><!----> <a href="/node/express静态资源处理.html" class="nav-link">express静态资源处理</a></li><li class="dropdown-item"><!----> <a href="/node/fs.html" class="nav-link">fs</a></li><li class="dropdown-item"><!----> <a href="/node/http服务.html" class="nav-link">http服务</a></li><li class="dropdown-item"><!----> <a href="/node/koa.html" class="nav-link">koa</a></li><li class="dropdown-item"><!----> <a href="/node/nginx.html" class="nav-link">nginx</a></li><li class="dropdown-item"><!----> <a href="/node/node基本模块.html" class="nav-link">node基本模块</a></li><li class="dropdown-item"><!----> <a href="/node/node输入输出流.html" class="nav-link">node输入输出流</a></li><li class="dropdown-item"><!----> <a href="/node/npm.html" class="nav-link">npm</a></li><li class="dropdown-item"><!----> <a href="/node/process.html" class="nav-link">process</a></li><li class="dropdown-item"><!----> <a href="/node/shell.html" class="nav-link">shell</a></li><li class="dropdown-item"><!----> <a href="/node/stream.html" class="nav-link">stream</a></li></ul></div></div><div class="nav-item"><a href="/ES6/" class="nav-link">ES6</a></div><div class="nav-item"><a href="/commander/" class="nav-link">command</a></div><div class="nav-item"><a href="https://github.com/G-Tristin/vue" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  gitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="/ts/" class="nav-link">TS</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">web</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/home/javascript.html" class="nav-link">js</a></li><li class="dropdown-item"><!----> <a href="/home/css.html" class="nav-link">css</a></li><li class="dropdown-item"><!----> <a href="/home/babel.html" class="nav-link">babel</a></li><li class="dropdown-item"><!----> <a href="/home/context.html" class="nav-link">context</a></li><li class="dropdown-item"><!----> <a href="/home/gulp.html" class="nav-link">gulp</a></li><li class="dropdown-item"><!----> <a href="/home/html5.html" class="nav-link">html5</a></li><li class="dropdown-item"><!----> <a href="/home/polyfill.html" class="nav-link">polyfill</a></li><li class="dropdown-item"><!----> <a href="/home/webpack.html" class="nav-link">webpack</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">Vue</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/vue/base.html" class="nav-link">base</a></li><li class="dropdown-item"><!----> <a href="/vue/component.html" class="nav-link">component</a></li><li class="dropdown-item"><!----> <a href="/vue/lib-flexible.html" class="nav-link">lib-flexible</a></li><li class="dropdown-item"><!----> <a href="/vue/vueload.html" class="nav-link">vueload</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">React</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/react/受控组件.html" class="nav-link">受控组件</a></li><li class="dropdown-item"><!----> <a href="/react/状态提升与slot.html" class="nav-link">状态提升与slot</a></li><li class="dropdown-item"><!----> <a href="/react/redux.html" class="nav-link">redux</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">node</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/node/buffer.html" class="nav-link">buffer</a></li><li class="dropdown-item"><!----> <a href="/node/childProcess.html" class="nav-link router-link-exact-active router-link-active">childProcess</a></li><li class="dropdown-item"><!----> <a href="/node/cluster.html" class="nav-link">cluster</a></li><li class="dropdown-item"><!----> <a href="/node/commonjs.html" class="nav-link">commonjs</a></li><li class="dropdown-item"><!----> <a href="/node/express.html" class="nav-link">express</a></li><li class="dropdown-item"><!----> <a href="/node/express静态资源处理.html" class="nav-link">express静态资源处理</a></li><li class="dropdown-item"><!----> <a href="/node/fs.html" class="nav-link">fs</a></li><li class="dropdown-item"><!----> <a href="/node/http服务.html" class="nav-link">http服务</a></li><li class="dropdown-item"><!----> <a href="/node/koa.html" class="nav-link">koa</a></li><li class="dropdown-item"><!----> <a href="/node/nginx.html" class="nav-link">nginx</a></li><li class="dropdown-item"><!----> <a href="/node/node基本模块.html" class="nav-link">node基本模块</a></li><li class="dropdown-item"><!----> <a href="/node/node输入输出流.html" class="nav-link">node输入输出流</a></li><li class="dropdown-item"><!----> <a href="/node/npm.html" class="nav-link">npm</a></li><li class="dropdown-item"><!----> <a href="/node/process.html" class="nav-link">process</a></li><li class="dropdown-item"><!----> <a href="/node/shell.html" class="nav-link">shell</a></li><li class="dropdown-item"><!----> <a href="/node/stream.html" class="nav-link">stream</a></li></ul></div></div><div class="nav-item"><a href="/ES6/" class="nav-link">ES6</a></div><div class="nav-item"><a href="/commander/" class="nav-link">command</a></div><div class="nav-item"><a href="https://github.com/G-Tristin/vue" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  gitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="/ts/" class="nav-link">TS</a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/node/" class="sidebar-link">node</a></li><li><a href="/node/buffer.html" class="sidebar-link">Buffer - 缓冲器</a></li><li><a href="/node/process.html" class="sidebar-link">process - 进程</a></li><li><a href="/node/childProcess.html" class="active sidebar-link">child_process - 子进程</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/node/childProcess.html#错误处理" class="sidebar-link">错误处理</a></li></ul></li><li><a href="/node/stream.html" class="sidebar-link">stream - 流</a></li><li><a href="/node/commonjs.html" class="sidebar-link">commonJs</a></li><li><a href="/node/node基本模块.html" class="sidebar-link">node 基本模块</a></li><li><a href="/node/http服务.html" class="sidebar-link">http服务</a></li><li><a href="/node/express.html" class="sidebar-link">express</a></li><li><a href="/node/express静态资源处理.html" class="sidebar-link">express静态资源处理</a></li><li><a href="/node/koa.html" class="sidebar-link">koa</a></li><li><a href="/node/npm.html" class="sidebar-link">npm的一些基本功能</a></li></ul> </div> <div class="page"> <div class="content"><h1 id="child-process-子进程"><a href="#child-process-子进程" aria-hidden="true" class="header-anchor">#</a> child_process - 子进程</h1> <p>在node当中只有一个线程执行所有的操作，如果某个操作需要消耗大量的CPU资源的情况下，后续的操作都需要等待。
+在Node.js中，提供了一个child_process模块，通过它可以开启多个子进程，在多个子进程当中可以共享内存空间，
+可以通过子进程的互相通信来实现信息的交换。</p> <p>child_process提供了4个方法，用于创建子进程，这四个方法分别是spawn、execFile、exec和fork。所有的方法都是异步的。</p> <h3 id="在windows上衍生-bat和-cmd文件"><a href="#在windows上衍生-bat和-cmd文件" aria-hidden="true" class="header-anchor">#</a> 在windows上衍生.bat和.cmd文件</h3> <p>child_process.exec()和child_process.execFile()之间的重要区别可能因平台而异。在Unix类型的操作系统(Unix、Linx、macOS)上，child_process.execFile()可以更高效，因为默认情况下它不会衍生出shell。但是在Windows上 .bat和.cmd文件在没有终端的情况下不能自行执行，因此无法使用child_process.execFile()启动。在windows上运行时，可以使用带有shell选项集的childd_process.spawn()、或使用child_process.exec()、或通过衍生 cmd.exe 并将 .bat 或 .cmd 文件作为参数传入（也就是 shell 选项和 child_process.exec() 所做的）。 在任何情况下，如果脚本文件名包含空格，则需要加上引号。</p> <p>// 仅限window系统</p> <div class="language- extra-class"><pre class="language-text"><code>const {spaw}  = require('child_process')
+const bat = spaw('cmd.exe',['/c','my.bat'])
+bat.stdout.on('data',(data)=&gt;{
+  console.log(data.toSting())
+})
+bat.stderr.on('data',(data)=&gt;{
+  console.log(data.toString())
+})
+bat.on('exit',(code)=&gt;{
+  console.log(`子进程退出码:${code}`)
+})
+</code></pre></div><p>或者</p> <div class="language- extra-class"><pre class="language-text"><code>const {exec} = require('child_process')
+exec('my.bat',(err,stdout,stderr)=&gt;{
+  if(err){
+    console.log(err)
+    return
+  }
+  console.log(stdout)
+})
+</code></pre></div><p>或者</p> <div class="language- extra-class"><pre class="language-text"><code>const {spawn} = require('child_process')
+const bat = spawn('&quot;my script.cmd&quot;',['a','b'],{shell:true})
+//或者
+const {exec} = require('child_process')
+exec('&quot;my script.cmd&quot;a b',(err,stdout,stderr)=&gt;{
+
+  // 注 这里对应--如果脚本文件名包含空格，则需要加上引号 '&quot;my script.cmd&quot;'
+  //...
+})
+</code></pre></div><h3 id="child-process-exec"><a href="#child-process-exec" aria-hidden="true" class="header-anchor">#</a> child_process.exec()</h3> <p>创建一个shell,然后在shell里面执行命令。执行完成后，将stdout、stderr作为参数传入回调函数</p> <p>如下例:
+1.执行成功，error为null;执行失败，error为Error实例。error.code为错误码。
+2.stdout、stderr为标准输出、标准错误。默认是字符串，除非options.encoding为buffer。</p> <div class="language- extra-class"><pre class="language-text"><code>var exec = require('child_process').exec
+exec('ls -al',function(error,stdout,stderr){
+  if(error){
+    console.log('error:'+error)
+    return
+  }
+  console.log('stdout:'+ stdout)
+  console.log('stderr'+ typeof stderr)
+})
+</code></pre></div><p>失败的命令</p> <div class="language- extra-class"><pre class="language-text"><code>exec('ls hello.txt', function(error, stdout, stderr){
+    if(error) {
+        console.error('error: ' + error);
+        return;
+    }
+    console.log('stdout: ' + stdout);
+    console.log('stderr: ' + stderr);
+});
+</code></pre></div><p>参数说明:</p> <ul><li>cwd:当前子进程的工作路径</li> <li>env:环境变量的键值对</li> <li>enconding:编码方式 默认utf-8</li> <li>shell:用于执行命令的shell</li> <li>timeout:0 // 如果timeout大于0，那么，子进程超过timeout毫秒数,就会给killSignal发送指定的信号(比如SIGTERM - 代表终止信号)</li> <li>killSignal:默认SIGTERM</li> <li>uid:执行进程的uid(设置进程的用户标识)</li> <li>gid:执行进程的gid(设置进程的群组标识)</li> <li>maxBuffer:标准输出最大输出允许的数据量，如果超出的化子进程就会被终止</li> <li>windowsHide:隐藏通常在Windows系统上创建的子进程的控制台窗口 默认值为false</li></ul> <p>备注:</p> <ul><li>如果运行没有出错那么error为null。如果运行出错，那么，error.code就是退出代码（exist code），error.signal会被设置成终止进程的信号。</li> <li>传给 exec 函数的command字符串由shell直接处理，那就会产生一些安全性的问题。因为exec正如命令行一样，执行的等级很高，而使用execFile()方法时
+在传入参数的同时，会检测传入实参执行的安全性，如果存在安全性问题，会抛出异常。这也是child_peocess.exec()与child_process.execFile()的区别前者会衍生shell直接执行shell命令，后者不会衍生shell。</li></ul> <p>eg:</p> <div class="language- extra-class"><pre class="language-text"><code>exec('ls hello.txt; rm -rf *', function(error, stdout, stderr){
+    if(error) {
+        console.error('error: ' + error);
+        // return;
+    }
+    console.log('stdout: ' + stdout);
+    console.log('stderr: ' + stderr);
+});
+</code></pre></div><p>在Unix系统下运行该命令会删除文件</p> <h3 id="child-process-execfile"><a href="#child-process-execfile" aria-hidden="true" class="header-anchor">#</a> child_process.execFile()</h3> <p>和child_peocess.exev()有点类似，不同的地方在于child_process.execFile(),不会衍生一个新的shell。</p> <p>参数:</p> <ul><li>file 要运行的可执行文件的名称或者路径</li> <li>args 字符串参数的列表</li> <li>optios
+- cwd 当前子进程的工作目录
+- env 环境变量的键值对
+- enconding 字符编码规则 默认utf-8
+- timeout 超出时间 默认0
+- maxBuffer stdout或者stderr允许的最大字节数。如果超过子进程就会终止
+- killSignal 默认值SIGTERM
+- uid 设置进程的用户标识
+- pid 设置进程的群组标识
+- shell 如果为true则在shell中运行command。 在 UNIX 上使用 '/bin/sh'，在 Windows 上使用 process.env.ComSpec。 传入字符串则指定其他 shell</li> <li>callback 当进程终止时调用
+- error  // 运行出错的错误对象
+- stdout  // 输出流
+- stderr  // 错误输出流</li></ul> <p>特性:</p> <p>child_process.execFile() 函数类似于 child_process.exec()，但默认情况下不会衍生 shell。 相反，指定的可执行 file 直接作为新进程衍生，使其比 child_process.exec() 稍微更高效。支持与 child_process.exec() 相同的选项。 由于没有生成 shell，因此不支持 I/O 重定向和文件通配等行为。</p> <div class="language- extra-class"><pre class="language-text"><code>const { execFile } = require('child_process');
+const child = execFile('node', ['--version'], (error, stdout, stderr) =&gt; {
+  if (error) {
+    throw error;
+  }
+  console.log(stdout);
+});
+</code></pre></div><p>注意:如果启用了 shell 选项，则不要将未经过处理的用户输入传给此函数。 包含 shell 元字符的任何输入都可用于触发任意命令执行。相当于衍生了shell</p> <h3 id="child-process-fork"><a href="#child-process-fork" aria-hidden="true" class="header-anchor">#</a> child_process.fork</h3> <p>参数：</p> <ul><li>modulePath:要在子进程当中运行的模块</li> <li>args:字符串参数列表</li> <li>options:
+- cwd 同上
+- detached 准备子进程独立于父进程运行，具体取决于平台。(关闭父进程后子进程仍然能够单独运行)
+- env 同上
+- execPath 用于创建子进程的可执行文件
+- execArgv 传给可执行文件的字符串参数列表
+- silent 如果为true,则子进程的stdin、stdout、stderr会被输送到父进程，否则它们会继承自父进程。 默认为false</li></ul> <p>特性:</p> <p>child_process.fork() 方法是 child_process.spawn() 的一个特例，专门用于衍生新的 Node.js 进程。</p> <h2 id="错误处理"><a href="#错误处理" aria-hidden="true" class="header-anchor">#</a> 错误处理</h2> <p>错误处理包含两种场景，这两种场景有不同的处理方式。</p> <ul><li>场景1：命令本身不存在，创建子进程报错</li> <li>场景2：命令存在，但运行过程中出错</li></ul> <div class="language- extra-class"><pre class="language-text"><code>var spawn = require('child_process').spawn
+var child = spawn('bad_command')
+child.on('error',(err) =&gt;{ 
+  console.log('Faild to start child process 1')
+})
+以上是第一种错误处理的方式(针对于第一个进程)
+
+以下是第二种错误处理的方式 并且这种方式可以获取进程中的错误信息
+var child2 = spawn('ls',['nonexistFile'])
+child2.stderr.on('data',function(data){
+  console.log('Error msg from process:2' + data)
+})
+
+以下是第一种错误处理的方式(针对于第二个进程)
+child2.on('error',(err)=&gt;{
+  console.log('Failed to start child process:2')
+})</code></pre></div></div> <div class="page-edit"><!----> <!----></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/node/process.html" class="prev">
+          process - 进程
+        </a></span> <span class="next"><a href="/node/stream.html">
+          stream - 流
+        </a>
+        →
+      </span></p></div> </div> <!----></div></div>
+    <script src="/assets/js/app.81bc3037.js" defer></script><script src="/assets/js/27.aa4612c9.js" defer></script>
+  </body>
+</html>

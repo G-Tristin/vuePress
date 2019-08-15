@@ -1,6 +1,6 @@
 module.exports = {
-	title: '梦想之路',
-	description: '起风了，任要坚强的活下去',
+	title: '起风了',
+	description: '起风了，仍要坚强的活下去',
 	themeConfig: {
 		nav: [
 			{
@@ -68,7 +68,14 @@ module.exports = {
 			},
 			{
 				text:'TS',
-				link:'/ts/'
+				items: [
+					{ text: 'interface和type', link: '/ts/interface和type' },
+					{ text: 'npm', link: '/ts/npm' },
+					{ text: 'umd', link: '/ts/umd' },
+					{ text: 'declare-name', link: '/ts/declare-name' },
+					{ text: 'declare-global', link: '/ts/declare-global' },
+					{ text: 'declare-module', link: '/ts/declare-module' },
+        ]
 			}
 		],
 		sidebarDepth: 1,
@@ -80,7 +87,7 @@ module.exports = {
 			'/node/': ['','buffer','process' ,'childProcess','stream','commonjs', 'node基本模块', 'http服务', 'express', 'express静态资源处理', 'koa', 'npm'],
 			'/commander/': ['', 'option与action', 'publish'],
 			'/react/': ['', '受控组件', '状态提升与slot', 'redux.md'],
-			'/ts/':['','interface','decalre-module','declare-global','declare-name','npm','umd']
+			'/ts/':['','decalre-module','declare-global','declare-name','npm','umd']
 		}
 	}
 }

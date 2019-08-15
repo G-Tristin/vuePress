@@ -1,6 +1,6 @@
 # ts类型
 
-### 元组 Tuple
+## 元组 Tuple
 
 在TS当中数组合并了相同类型的对象，而元组则是合并了不同类型的对象。
 
@@ -17,7 +17,7 @@ console.log(x[5].toString()); // OK, 'string' 和 'number' 都有 toString
 x[6] = true; // Error, 布尔不是(string | number)类型
 ```
 
-### 枚举
+## 枚举
 枚举类型是对JavaScript标准类型的一个补充。向C等其他语言一样，使用枚举类型可以为一组数值赋予友好的名字。
 
 枚举类型通过`enum`关键字来定义
@@ -38,16 +38,54 @@ console.log(Days[1] === "Mon"); // true
 console.log(Days[2] === "Tue"); // true
 console.log(Days[6] === "Sat"); // true
 ```
-#### 枚举分类 
+
+## 枚举项分为两种类型
+
+枚举类型可以分为常数项和计算所得项
+
+当满足以下条件时，枚举成员会被当作是常数
+- 不具有初始化函数并且之前的枚举成员是常数。
+- 枚举成员使用常数枚举表达式初始化
+
+### 枚举分类 
 1.普通枚举与常数枚举的区别
 
-常数枚举会在编译阶段被删除，并且不能包含计算成员。并且常数枚举的声明方式和普通枚举的声明方式也不相同，常数枚举通过 const enum来定义枚举类型
+- 常数枚举是使用`const enum`定义的枚举类型
+```
+const enum Directions {
+    Up,
+    Down,
+    Left,
+    Right
+}
+​
+let directions = [Directions.Up, Directions.Down, Directions.Left, Directions.Right]
+```
+
+- 常数枚举会在编译阶段被删除，并且不能包含计算成员。
+```
+enum Directions { up, down, left, right}
+编译结果：
+var dir;
+(function (dir) {
+    dir[dir["left"] = 0] = "left";
+    dir[dir["top"] = 1] = "top";
+    dir[dir["down"] = 2] = "down";
+    dir[dir["right"] = 3] = "right";
+})(dir || (dir = {}));
+
+```
+
+```
+const enum Directions { up, down, left, right}
+没有编译结果 会被删除
+```
 
 2.外部枚举
 
 外部枚举是使用declare enum定义的枚举类型
 
-### voild
+## voild
 voild表示没有任何类型,当一个函数没有返回值的时候，可以将其的返回值类型设置为void
 ```
 function warnUser():vaild{
@@ -55,10 +93,10 @@ function warnUser():vaild{
 }
 ```
 
-### never
+## never
 never类型表示的是那些永远不存在的值的类型。例如，never类型是那些总是会抛出异常或根本就不会有返回值的函数表达式或者箭头函数表达式的返回值类型。
 
-### Object
+## Object
 Object 表示非原始类型，也就是除了Number，String,boolean,symbol,null或undefined之外的类型。
 
 ## 类型断言

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>在typescript当中使用npm包 | 梦想之路</title>
+    <meta name="description" content="起风了，任要坚强的活下去">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.48f274b5.css" as="style"><link rel="preload" href="/assets/js/app.81bc3037.js" as="script"><link rel="preload" href="/assets/js/52.5a824704.js" as="script"><link rel="prefetch" href="/assets/js/10.8def6c83.js"><link rel="prefetch" href="/assets/js/11.3457136c.js"><link rel="prefetch" href="/assets/js/12.dc2b72f6.js"><link rel="prefetch" href="/assets/js/13.1f2bc63e.js"><link rel="prefetch" href="/assets/js/14.f8c6043d.js"><link rel="prefetch" href="/assets/js/15.4e4477b7.js"><link rel="prefetch" href="/assets/js/16.6a2bc7b9.js"><link rel="prefetch" href="/assets/js/17.747feb28.js"><link rel="prefetch" href="/assets/js/18.b7868336.js"><link rel="prefetch" href="/assets/js/19.22f0aece.js"><link rel="prefetch" href="/assets/js/2.eb0bafce.js"><link rel="prefetch" href="/assets/js/20.1f9b3b2f.js"><link rel="prefetch" href="/assets/js/21.e49e09ed.js"><link rel="prefetch" href="/assets/js/22.95076785.js"><link rel="prefetch" href="/assets/js/23.562b717f.js"><link rel="prefetch" href="/assets/js/24.3952779a.js"><link rel="prefetch" href="/assets/js/25.6d8ed32c.js"><link rel="prefetch" href="/assets/js/26.c05cc220.js"><link rel="prefetch" href="/assets/js/27.aa4612c9.js"><link rel="prefetch" href="/assets/js/28.ee39f9c7.js"><link rel="prefetch" href="/assets/js/29.da38b9b1.js"><link rel="prefetch" href="/assets/js/3.8c808b08.js"><link rel="prefetch" href="/assets/js/30.c25393bb.js"><link rel="prefetch" href="/assets/js/31.5de6002b.js"><link rel="prefetch" href="/assets/js/32.cc80342c.js"><link rel="prefetch" href="/assets/js/33.8527ac6b.js"><link rel="prefetch" href="/assets/js/34.53e2fb20.js"><link rel="prefetch" href="/assets/js/35.720df360.js"><link rel="prefetch" href="/assets/js/36.b3e6371a.js"><link rel="prefetch" href="/assets/js/37.7ba27e1a.js"><link rel="prefetch" href="/assets/js/38.da7b7ae2.js"><link rel="prefetch" href="/assets/js/39.4212980b.js"><link rel="prefetch" href="/assets/js/4.d51c0877.js"><link rel="prefetch" href="/assets/js/40.0897b6f1.js"><link rel="prefetch" href="/assets/js/41.4fb96b39.js"><link rel="prefetch" href="/assets/js/42.f6c4ec4b.js"><link rel="prefetch" href="/assets/js/43.851bd2e0.js"><link rel="prefetch" href="/assets/js/44.5c333ff9.js"><link rel="prefetch" href="/assets/js/45.80064017.js"><link rel="prefetch" href="/assets/js/46.f47eeceb.js"><link rel="prefetch" href="/assets/js/47.f5f401d6.js"><link rel="prefetch" href="/assets/js/48.6193479b.js"><link rel="prefetch" href="/assets/js/49.14a284fe.js"><link rel="prefetch" href="/assets/js/5.a22856c2.js"><link rel="prefetch" href="/assets/js/50.37548b37.js"><link rel="prefetch" href="/assets/js/51.0cbfdf9d.js"><link rel="prefetch" href="/assets/js/53.9b1dab26.js"><link rel="prefetch" href="/assets/js/54.f931bf17.js"><link rel="prefetch" href="/assets/js/55.1518fcbb.js"><link rel="prefetch" href="/assets/js/56.fdb78d16.js"><link rel="prefetch" href="/assets/js/57.ca2be3fc.js"><link rel="prefetch" href="/assets/js/58.f0ed9c5e.js"><link rel="prefetch" href="/assets/js/59.190d46dc.js"><link rel="prefetch" href="/assets/js/6.3805a77d.js"><link rel="prefetch" href="/assets/js/7.4c7ada1d.js"><link rel="prefetch" href="/assets/js/8.534a355e.js"><link rel="prefetch" href="/assets/js/9.1d4c3048.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.48f274b5.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">梦想之路</span></a> <div class="links" style="max-width:nullpx;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">web</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/home/javascript.html" class="nav-link">js</a></li><li class="dropdown-item"><!----> <a href="/home/css.html" class="nav-link">css</a></li><li class="dropdown-item"><!----> <a href="/home/babel.html" class="nav-link">babel</a></li><li class="dropdown-item"><!----> <a href="/home/context.html" class="nav-link">context</a></li><li class="dropdown-item"><!----> <a href="/home/gulp.html" class="nav-link">gulp</a></li><li class="dropdown-item"><!----> <a href="/home/html5.html" class="nav-link">html5</a></li><li class="dropdown-item"><!----> <a href="/home/polyfill.html" class="nav-link">polyfill</a></li><li class="dropdown-item"><!----> <a href="/home/webpack.html" class="nav-link">webpack</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">Vue</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/vue/base.html" class="nav-link">base</a></li><li class="dropdown-item"><!----> <a href="/vue/component.html" class="nav-link">component</a></li><li class="dropdown-item"><!----> <a href="/vue/lib-flexible.html" class="nav-link">lib-flexible</a></li><li class="dropdown-item"><!----> <a href="/vue/vueload.html" class="nav-link">vueload</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">React</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/react/受控组件.html" class="nav-link">受控组件</a></li><li class="dropdown-item"><!----> <a href="/react/状态提升与slot.html" class="nav-link">状态提升与slot</a></li><li class="dropdown-item"><!----> <a href="/react/redux.html" class="nav-link">redux</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">node</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/node/buffer.html" class="nav-link">buffer</a></li><li class="dropdown-item"><!----> <a href="/node/childProcess.html" class="nav-link">childProcess</a></li><li class="dropdown-item"><!----> <a href="/node/cluster.html" class="nav-link">cluster</a></li><li class="dropdown-item"><!----> <a href="/node/commonjs.html" class="nav-link">commonjs</a></li><li class="dropdown-item"><!----> <a href="/node/express.html" class="nav-link">express</a></li><li class="dropdown-item"><!----> <a href="/node/express静态资源处理.html" class="nav-link">express静态资源处理</a></li><li class="dropdown-item"><!----> <a href="/node/fs.html" class="nav-link">fs</a></li><li class="dropdown-item"><!----> <a href="/node/http服务.html" class="nav-link">http服务</a></li><li class="dropdown-item"><!----> <a href="/node/koa.html" class="nav-link">koa</a></li><li class="dropdown-item"><!----> <a href="/node/nginx.html" class="nav-link">nginx</a></li><li class="dropdown-item"><!----> <a href="/node/node基本模块.html" class="nav-link">node基本模块</a></li><li class="dropdown-item"><!----> <a href="/node/node输入输出流.html" class="nav-link">node输入输出流</a></li><li class="dropdown-item"><!----> <a href="/node/npm.html" class="nav-link">npm</a></li><li class="dropdown-item"><!----> <a href="/node/process.html" class="nav-link">process</a></li><li class="dropdown-item"><!----> <a href="/node/shell.html" class="nav-link">shell</a></li><li class="dropdown-item"><!----> <a href="/node/stream.html" class="nav-link">stream</a></li></ul></div></div><div class="nav-item"><a href="/ES6/" class="nav-link">ES6</a></div><div class="nav-item"><a href="/commander/" class="nav-link">command</a></div><div class="nav-item"><a href="https://github.com/G-Tristin/vue" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  gitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="/ts/" class="nav-link router-link-active">TS</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">web</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/home/javascript.html" class="nav-link">js</a></li><li class="dropdown-item"><!----> <a href="/home/css.html" class="nav-link">css</a></li><li class="dropdown-item"><!----> <a href="/home/babel.html" class="nav-link">babel</a></li><li class="dropdown-item"><!----> <a href="/home/context.html" class="nav-link">context</a></li><li class="dropdown-item"><!----> <a href="/home/gulp.html" class="nav-link">gulp</a></li><li class="dropdown-item"><!----> <a href="/home/html5.html" class="nav-link">html5</a></li><li class="dropdown-item"><!----> <a href="/home/polyfill.html" class="nav-link">polyfill</a></li><li class="dropdown-item"><!----> <a href="/home/webpack.html" class="nav-link">webpack</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">Vue</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/vue/base.html" class="nav-link">base</a></li><li class="dropdown-item"><!----> <a href="/vue/component.html" class="nav-link">component</a></li><li class="dropdown-item"><!----> <a href="/vue/lib-flexible.html" class="nav-link">lib-flexible</a></li><li class="dropdown-item"><!----> <a href="/vue/vueload.html" class="nav-link">vueload</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">React</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/react/受控组件.html" class="nav-link">受控组件</a></li><li class="dropdown-item"><!----> <a href="/react/状态提升与slot.html" class="nav-link">状态提升与slot</a></li><li class="dropdown-item"><!----> <a href="/react/redux.html" class="nav-link">redux</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">node</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/node/buffer.html" class="nav-link">buffer</a></li><li class="dropdown-item"><!----> <a href="/node/childProcess.html" class="nav-link">childProcess</a></li><li class="dropdown-item"><!----> <a href="/node/cluster.html" class="nav-link">cluster</a></li><li class="dropdown-item"><!----> <a href="/node/commonjs.html" class="nav-link">commonjs</a></li><li class="dropdown-item"><!----> <a href="/node/express.html" class="nav-link">express</a></li><li class="dropdown-item"><!----> <a href="/node/express静态资源处理.html" class="nav-link">express静态资源处理</a></li><li class="dropdown-item"><!----> <a href="/node/fs.html" class="nav-link">fs</a></li><li class="dropdown-item"><!----> <a href="/node/http服务.html" class="nav-link">http服务</a></li><li class="dropdown-item"><!----> <a href="/node/koa.html" class="nav-link">koa</a></li><li class="dropdown-item"><!----> <a href="/node/nginx.html" class="nav-link">nginx</a></li><li class="dropdown-item"><!----> <a href="/node/node基本模块.html" class="nav-link">node基本模块</a></li><li class="dropdown-item"><!----> <a href="/node/node输入输出流.html" class="nav-link">node输入输出流</a></li><li class="dropdown-item"><!----> <a href="/node/npm.html" class="nav-link">npm</a></li><li class="dropdown-item"><!----> <a href="/node/process.html" class="nav-link">process</a></li><li class="dropdown-item"><!----> <a href="/node/shell.html" class="nav-link">shell</a></li><li class="dropdown-item"><!----> <a href="/node/stream.html" class="nav-link">stream</a></li></ul></div></div><div class="nav-item"><a href="/ES6/" class="nav-link">ES6</a></div><div class="nav-item"><a href="/commander/" class="nav-link">command</a></div><div class="nav-item"><a href="https://github.com/G-Tristin/vue" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  gitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="/ts/" class="nav-link router-link-active">TS</a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/ts/" class="sidebar-link">ts类型</a></li><li><a href="/ts/interface.html" class="sidebar-link">interface</a></li><li><a href="/ts/decalre-module.html" class="sidebar-link">declare module -- 模块插件</a></li><li><a href="/ts/declare-global.html" class="sidebar-link">在npm包或者UMD库的声明文件中扩展全局变量的类型</a></li><li><a href="/ts/declare-name.html" class="sidebar-link">declare namespace</a></li><li><a href="/ts/npm.html" class="active sidebar-link">在typescript当中使用npm包</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/ts/npm.html#在typescript当中使用npm包" class="sidebar-link">在typescript当中使用npm包</a></li></ul></li><li><a href="/ts/umd.html" class="sidebar-link">UMD库</a></li></ul> </div> <div class="page"> <div class="content"><h2 id="在typescript当中使用npm包"><a href="#在typescript当中使用npm包" aria-hidden="true" class="header-anchor">#</a> 在typescript当中使用npm包</h2> <p>一般我们通过 import foo from 'foo' 导入一个npm包，这是符合ES6规范的。</p> <p>在我们尝试给一个npm包创建声明文件的之前，需要看看它的申明文件是否存在。一般来说，npm包的声明文件就存在2个地方。</p> <ol><li><p>与改npm包绑定在一起。判断依据是package.json种有types字段，或者拥有一个index.d.ts声明文件。这种模式不需要额外的安装其它包，是
+最为推荐的，所以以后我们自己要创建npm包的时候，最好也将申明声明文件和npm包绑定在一起。</p></li> <li><p>发布到@types里。我们只需要尝试安装一下对应的@types包就知道是否存在该声明文件，安装命令是 npm install @types/foo --save-dev。这种模式
+一般是由于npm包的维护者没有提供声明文件，所以只能由他人来将声明文件发布到@types里了</p></li></ol> <p>假如以上两种方式都没有找到对应的文件，那么我们就需要自己为它书写声明文件了。由于是通过import语句导入的模块，所以声明文件存放的位置也有所束缚，
+一般有2种方案。</p> <ol><li><p>创建一个node_modules/@types/foo/index.d.ts文件，存放foo模块的文件。这种方式不需要二外的配置，但是node_modules目录不稳定，代码也没有保存到仓库当中，无法回溯版本，有者不小心被删除的风险，故不太建议使用这种方案，一般只是用作临时测试。</p></li> <li><p>创建一个types目录，专门用来管理自己写的申明文件，将foo的声明文件放到types/foo/index.d.ts中。这种方式需要配置下tsconfig.json中的path和baseUrl字段。</p></li></ol> <div class="language- extra-class"><pre class="language-text"><code>tsconfig的内容
+{
+    &quot;compilerOptions&quot;: {
+        &quot;module&quot;: &quot;commonjs&quot;,
+        &quot;baseUrl&quot;: &quot;./&quot;,
+        &quot;paths&quot;: {
+            &quot;*&quot;: [&quot;types/*&quot;]
+        }
+    }
+}
+</code></pre></div><p>如此配置之后，拖过import导入foo的时候，也会去types目录下寻找对应的模块声明文件了。</p> <p>注意module配置可以有很多种选项，不同的选项会影响模块的导入导出模式。这里我们使用了commonjs这个最常用的选项，后面的教程也都默认选用这个选项。</p> <h3 id="npm-包的声明文件和全局变量的申明文件存在很大的区别。"><a href="#npm-包的声明文件和全局变量的申明文件存在很大的区别。" aria-hidden="true" class="header-anchor">#</a> npm 包的声明文件和全局变量的申明文件存在很大的区别。</h3> <p>在npm包的声明文件中，使用declare不会再声明一个全局变量，而只会在当前文件中声明一个局部变量。只有在声明文件当中使用export导出，然后在使用方inport导入后，才会应用到这些类型声明。</p> <p>npm包的声明文件主要有一下几种语法:</p> <ol><li>export 导出变量</li> <li>export namespace 导出(含有子属性的)对象</li> <li>export default ES6默认导出</li> <li>export= commonjs 导出模块</li></ol> <h4 id="export-的语法和普通的js中的语法类似，区别仅在于声明文件中禁止定义具体的实现"><a href="#export-的语法和普通的js中的语法类似，区别仅在于声明文件中禁止定义具体的实现" aria-hidden="true" class="header-anchor">#</a> export 的语法和普通的js中的语法类似，区别仅在于声明文件中禁止定义具体的实现</h4> <div class="language- extra-class"><pre class="language-text"><code>export const name:string
+export function getname():string
+export class Animal {
+    constructor(name: string);
+    sayHi(): string;
+}
+export enum Directions {
+    Up,
+    Down,
+    Left,
+    Right
+}
+
+// 注意以下是导出声明类型
+export interface Options {
+    data: any;
+}
+</code></pre></div><p>对应的导入和使用模块应该是这样:</p> <div class="language- extra-class"><pre class="language-text"><code>// src/index.ts
+import { name, getName, Animal, Directions, Options } from 'foo';
+console.log(name);
+let myName = getName();
+let cat = new Animal('Tom');
+let directions = [Directions.Up, Directions.Down, Directions.Left, Directions.Right];
+let options: Options = {
+    data: {
+        name: 'foo'
+    }
+};
+</code></pre></div><h4 id="混用declare和export"><a href="#混用declare和export" aria-hidden="true" class="header-anchor">#</a> 混用declare和export</h4> <p>我们也可以使用decalre先声明多个变量，最后再一次性导出。上文的声明文件可以等价的改写为:</p> <div class="language- extra-class"><pre class="language-text"><code>// types/foo/index.d.ts
+
+declare const name:string
+declare function getName():string
+declare class Animal{
+  constructor(name:string)
+  sayHi():sting
+}
+
+declare enum Directions{
+  up,
+  Down,
+  Left,
+  Right
+}
+
+interface Options{
+  data:any
+}
+
+export(name,getName,Animal,Directions,Options)
+</code></pre></div><p>注意与全局变量的声明文件类似，interface 前提不需要declare的。</p> <h4 id="export-namespace"><a href="#export-namespace" aria-hidden="true" class="header-anchor">#</a> export namespace</h4> <p>与declare namespace类似，export namespace用来导出一个拥有子属性的对象</p> <div class="language- extra-class"><pre class="language-text"><code>// type/foo/index.d.ts
+
+export namespace foo{
+  const name:string
+  namespace bar {
+    function baz():string;
+  }
+}
+
+// src/index.ts
+impor {foo} from 'foo';
+console.log(foo.name);
+foo.bar.baz();
+</code></pre></div><h5 id="declare-namespace-与-export-namespace-以及-interface的区别"><a href="#declare-namespace-与-export-namespace-以及-interface的区别" aria-hidden="true" class="header-anchor">#</a> declare namespace 与 export namespace 以及 interface的区别</h5> <p>declare namespae 在全局的声明文件中 声明一个全局的 拥有子对象的变量对象</p> <p>export namespace 导出一个拥有子对象的变量对象</p> <p>interface 声明一个接口 这个接口一般用来描述对象</p> <h4 id="export-default"><a href="#export-default" aria-hidden="true" class="header-anchor">#</a> export default</h4> <p>导出默认模块 但是只有function class和interface可以默认导出</p></div> <div class="page-edit"><!----> <!----></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/ts/declare-name.html" class="prev">
+          declare namespace
+        </a></span> <span class="next"><a href="/ts/umd.html">
+          UMD库
+        </a>
+        →
+      </span></p></div> </div> <!----></div></div>
+    <script src="/assets/js/app.81bc3037.js" defer></script><script src="/assets/js/52.5a824704.js" defer></script>
+  </body>
+</html>

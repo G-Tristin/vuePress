@@ -4,7 +4,7 @@
 
 ### export as namespace
 
-一般使用export as namespace时，都是先有了npm包的声明文件，再基于它添加一条export as namespace语句，即可将生命好的一个变量声明为全局变量，举例如下:
+一般使用export as namespace时，都是先有了npm包的声明文件，再基于它添加一条export as namespace语句，即可将声明好的一个变量声明为全局变量，举例如下:
 
 ```
 // type/foo/index.d.ts
