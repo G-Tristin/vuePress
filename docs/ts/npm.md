@@ -1,23 +1,22 @@
-## 在typescript当中使用npm包
+# 在typescript当中使用npm包
 
-一般我们通过 import foo from 'foo' 导入一个npm包，这是符合ES6规范的。
+- 为什么要写声明语句?
+- 在TS当中我们使用到的变量都需要声明它的类型，当我们引入了第三方库之后就会直接使用到该库当中导出的变量，但是TS无法识别这些变量的类型，这时候就需要我们书写声明语句来将这些变量类型定义。
 
 在我们尝试给一个npm包创建声明文件的之前，需要看看它的申明文件是否存在。一般来说，npm包的声明文件就存在2个地方。
 
 1. 与改npm包绑定在一起。判断依据是package.json种有types字段，或者拥有一个index.d.ts声明文件。这种模式不需要额外的安装其它包，是
 最为推荐的，所以以后我们自己要创建npm包的时候，最好也将申明声明文件和npm包绑定在一起。
 
-2. 发布到@types里。我们只需要尝试安装一下对应的@types包就知道是否存在该声明文件，安装命令是 npm install @types/foo --save-dev。这种模式
-一般是由于npm包的维护者没有提供声明文件，所以只能由他人来将声明文件发布到@types里了
+2. 发布到@types里。我们只需要尝试安装一下对应的@types包就知道是否存在该声明文件，安装命令是 npm install @types/foo --save-dev。这种模式一般是由于npm包的维护者没有提供声明文件，所以只能由他人来将声明文件发布到@types里了。
 
-假如以上两种方式都没有找到对应的文件，那么我们就需要自己为它书写声明文件了。由于是通过import语句导入的模块，所以声明文件存放的位置也有所束缚，
-一般有2种方案。
+假如以上两种方式都没有找到对应的文件，那么我们就需要自己为它书写声明文件了。由于是通过import语句导入的模块，所以声明文件存放的位置也有所束缚，一般有2种方案。
 
-1. 创建一个node_modules/@types/foo/index.d.ts文件，存放foo模块的文件。这种方式不需要二外的配置，但是node_modules目录不稳定，代码也没有保存到仓库当中，无法回溯版本，有者不小心被删除的风险，故不太建议使用这种方案，一般只是用作临时测试。
+1. 创建一个node_modules/@types/foo/index.d.ts文件，存放foo模块的文件。这种方式不需要额外的配置，但是node_modules目录不稳定，代码也没有保存到仓库当中，无法回溯版本，有着不小心被删除的风险，故不太建议使用这种方案，一般只是用作临时测试。
 
 2. 创建一个types目录，专门用来管理自己写的申明文件，将foo的声明文件放到types/foo/index.d.ts中。这种方式需要配置下tsconfig.json中的path和baseUrl字段。
 ```
-tsconfig的内容
+// tsconfig.json
 {
     "compilerOptions": {
         "module": "commonjs",
@@ -33,7 +32,7 @@ tsconfig的内容
 
 注意module配置可以有很多种选项，不同的选项会影响模块的导入导出模式。这里我们使用了commonjs这个最常用的选项，后面的教程也都默认选用这个选项。
 
-### npm 包的声明文件和全局变量的申明文件存在很大的区别。
+## npm包的声明文件和全局变量的声明文件的区别。
 
 在npm包的声明文件中，使用declare不会再声明一个全局变量，而只会在当前文件中声明一个局部变量。只有在声明文件当中使用export导出，然后在使用方inport导入后，才会应用到这些类型声明。
 
@@ -44,7 +43,7 @@ npm包的声明文件主要有一下几种语法:
 3. export default ES6默认导出
 4. export= commonjs 导出模块
 
-#### export 的语法和普通的js中的语法类似，区别仅在于声明文件中禁止定义具体的实现
+export的语法和普通的js中的语法类似，区别仅在于声明文件中禁止定义具体的实现
 ```
 export const name:string
 export function getname():string
@@ -58,17 +57,15 @@ export enum Directions {
     Left,
     Right
 }
-
-// 注意以下是导出声明类型
 export interface Options {
     data: any;
 }
 ```
+
 对应的导入和使用模块应该是这样:
 ```
 // src/index.ts
 import { name, getName, Animal, Directions, Options } from 'foo';
-console.log(name);
 let myName = getName();
 let cat = new Animal('Tom');
 let directions = [Directions.Up, Directions.Down, Directions.Left, Directions.Right];
