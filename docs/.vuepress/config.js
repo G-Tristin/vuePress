@@ -74,7 +74,6 @@ module.exports = {
 					{ text: 'umd', link: '/ts/umd' },
 					{ text: 'declare-name', link: '/ts/declare-name' },
 					{ text: 'declare-global', link: '/ts/declare-global' },
-					{ text: 'declare-module', link: '/ts/declare-module' },
         ]
 			}
 		],
@@ -87,7 +86,7 @@ module.exports = {
 			'/node/': ['','buffer','process' ,'childProcess','stream','commonjs', 'node基本模块', 'http服务', 'express', 'express静态资源处理', 'koa', 'npm'],
 			'/commander/': ['', 'option与action', 'publish'],
 			'/react/': ['', '受控组件', '状态提升与slot', 'redux.md'],
-			'/ts/':['','decalre-module','declare-global','declare-name','npm','umd']
+			'/ts/':['','interface和type','declare-global','declare-name','npm','umd']
 		}
 	}
 }

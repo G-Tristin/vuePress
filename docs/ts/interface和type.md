@@ -1,4 +1,4 @@
-#interface和type
+# interface和type
 
 在Typescript中，我们使用接口(interface)来定义对象的类型
 
@@ -24,7 +24,6 @@ type 可以申明基本类型别名、联合类型、元组等类型
 type Name = string
 
 // 联合类型
-
 interface dog {
     wang()
 }
@@ -36,7 +35,6 @@ interface cat {
 type Pet = dog | cat 
 
 // 具体定义数组每个位置的类型
-
 type PetList = [dog , Pet]
 ```
 
@@ -67,7 +65,7 @@ interface有可选属性和只读属性
 
 extends很明显就是ES6里面的类继承，那么implement又是做什么的呢?它和extends有什么不同?
 
-implement,实现。与C#或者JAVA里的接口的基本作用一样，Typescript也能够用它来明确的强制一个类去符合某种契约
+implement-实现。与C#或者JAVA里的接口的基本作用一样，Typescript也能够用它来明确的强制一个类去符合某种契约
 
 implement基本用法:
 ```
@@ -77,12 +75,14 @@ interface IDeveloper{
 }
 
 correct
+
 class dev implement IDeveloper{
     name:'js',
     age:26
 }
 
 err 
+
 class dev2 implement IDeveloper{
     name:'js',
     sex:'mail'

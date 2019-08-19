@@ -1,9 +1,8 @@
 # declare namespace
 
-namespace 是ts早期时为了解决模块化而创造的关键字又称为命名空间，namespace被淘汰了，但是在申明文件中，declare namespace还是比较常用的，它
-用来表示全局变量是一个对象，包含很多子属性。
+namespace 是ts早期时为了解决模块化而创造的关键字又称为命名空间，namespace被淘汰了，但是在申明文件中，declare namespace还是比较常用的，它用来表示全局变量是一个对象，包含很多子属性。
 
-如果对象拥有深层的层级，则需要用嵌套的namespacel来声明深层的属性的类型
+如果对象拥有深层的层级，则需要用嵌套的namespace来声明深层的属性的类型
 ```
 // src/jQuery.d.ts
 declare namespace jQuery{
