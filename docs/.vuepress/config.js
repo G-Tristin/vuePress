@@ -69,11 +69,12 @@ module.exports = {
 			{
 				text:'TS',
 				items: [
-					{ text: 'interface和type', link: '/ts/interface和type' },
+					{ text: '简介', link: '/ts/README.md' },
+					{ text: '声明全局变量', link: '/ts/声明全局变量' },
 					{ text: 'npm', link: '/ts/npm' },
 					{ text: 'umd', link: '/ts/umd' },
-					{ text: 'declare-name', link: '/ts/declare-name' },
-					{ text: 'declare-global', link: '/ts/declare-global' },
+					{ text: '扩展全局变量', link: '/ts/扩展全局变量' },
+					{ text: '扩展模块变量', link: '/ts/扩展模块变量' },
         ]
 			}
 		],
@@ -86,7 +87,7 @@ module.exports = {
 			'/node/': ['','buffer','process' ,'childProcess','stream','commonjs', 'node基本模块', 'http服务', 'express', 'express静态资源处理', 'koa', 'npm'],
 			'/commander/': ['', 'option与action', 'publish'],
 			'/react/': ['', '受控组件', '状态提升与slot', 'redux.md'],
-			'/ts/':['','interface和type','declare-global','declare-name','npm','umd']
+			'/ts/':['','声明全局变量','npm','umd','扩展全局变量','扩展模块变量']
 		}
 	}
 }
