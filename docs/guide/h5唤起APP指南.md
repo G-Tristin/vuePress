@@ -112,7 +112,7 @@ Scheme 在微信、微博、QQ浏览器、手百中都已经被禁止使用，�
 通过前面的介绍我们可以发现无论是 `URL Scheme` 还是 `Intent` 或者 `Universal Link` ，他们都算是URL 。只是 `URL Scheme` 和 `Intent` 算是特殊的URL，所以我们可以拿使用URL的方法来使用它们。
 
 具体的形式如下:
-1. <a href="URL"> 直接作为 a 标签的 href，点击该标签即可跳转
+1. `<a href="URL">` 直接作为 a 标签的 href，点击该标签即可跳转
 
 2. 通过监听点击事件，将 window.location.href = URL 即可实现跳转
 
