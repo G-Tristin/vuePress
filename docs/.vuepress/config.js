@@ -4,9 +4,9 @@ module.exports = {
 	themeConfig: {
 		nav: [
 			{
-        text: 'web',
-        items: [
-          { text: 'js', link: '/home/javascript' },
+				text: 'web',
+				items: [
+					{ text: 'js', link: '/home/javascript' },
 					{ text: 'css', link: '/home/css' },
 					{ text: 'babel', link: '/home/babel' },
 					{ text: 'context', link: '/home/context' },
@@ -14,29 +14,29 @@ module.exports = {
 					{ text: 'html5', link: '/home/html5' },
 					{ text: 'polyfill', link: '/home/polyfill' },
 					{ text: 'webpack', link: '/home/webpack' },
-        ]
-      },
+				]
+			},
 			{
 				text: 'Vue',
 				items: [
-          { text: 'base', link: '/vue/base' },
+					{ text: 'base', link: '/vue/base' },
 					{ text: 'component', link: '/vue/component' },
 					{ text: 'lib-flexible', link: '/vue/lib-flexible' },
 					{ text: 'vueload', link: '/vue/vueload' },
-        ]
+				]
 			},
 			{
 				text: 'React',
 				items: [
-          { text: '受控组件', link: '/react/受控组件' },
+					{ text: '受控组件', link: '/react/受控组件' },
 					{ text: '状态提升与slot', link: '/react/状态提升与slot' },
 					{ text: 'redux', link: '/react/redux' },
-        ]
+				]
 			},
 			{
 				text: 'node',
 				items: [
-          { text: 'buffer', link: '/node/buffer' },
+					{ text: 'buffer', link: '/node/buffer' },
 					{ text: 'childProcess', link: '/node/childProcess' },
 					{ text: 'cluster', link: '/node/cluster' },
 					{ text: 'commonjs', link: '/node/commonjs' },
@@ -52,7 +52,7 @@ module.exports = {
 					{ text: 'process', link: '/node/process' },
 					{ text: 'shell', link: '/node/shell' },
 					{ text: 'stream', link: '/node/stream' },
-        ]
+				]
 			},
 			{
 				text: 'ES6',
@@ -67,7 +67,7 @@ module.exports = {
 				link: 'https://github.com/G-Tristin/vue'
 			},
 			{
-				text:'TS',
+				text: 'TS',
 				items: [
 					{ text: '简介', link: '/ts/README.md' },
 					{ text: '声明全局变量', link: '/ts/声明全局变量' },
@@ -75,19 +75,19 @@ module.exports = {
 					{ text: 'umd', link: '/ts/umd' },
 					{ text: '扩展全局变量', link: '/ts/扩展全局变量' },
 					{ text: '扩展模块变量', link: '/ts/扩展模块变量' },
-        ]
+				]
 			}
 		],
 		sidebarDepth: 1,
 		sidebar: {
 			'/guide/': ['', 'markdown'],
-			'/home/': ['','html5', 'css', 'javascript', 'gulp', 'webpack', 'polyfill','babel'],
-			'/vue/': ['', 'base','component','lib-flexible', 'vueLoad'],
-			'/ES6/': ['', 'object','es6class','es6class-extend'],
-			'/node/': ['','buffer','process' ,'childProcess','stream','commonjs', 'node基本模块', 'http服务', 'express', 'express静态资源处理', 'koa', 'npm'],
+			'/home/': ['', 'html5', 'css', 'javascript', 'gulp', 'webpack', 'polyfill', 'babel'],
+			'/vue/': ['', 'base', 'component', 'lib-flexible', 'vueLoad', 'Vue插件开发指北'],
+			'/ES6/': ['', 'object', 'es6class', 'es6class-extend', 'promise', 'proxy', '观察者模式(发布-订阅)', 'async'],
+			'/node/': ['', 'buffer', 'process', 'childProcess', 'stream', 'commonjs', 'node基本模块', 'http服务', 'express', 'express静态资源处理', 'koa', 'npm'],
 			'/commander/': ['', 'option与action', 'publish'],
 			'/react/': ['', '受控组件', '状态提升与slot', 'redux.md'],
-			'/ts/':['','声明全局变量','npm','umd','扩展全局变量','扩展模块变量']
+			'/ts/': ['', '声明全局变量', 'npm', 'umd', '扩展全局变量', '扩展模块变量']
 		}
 	}
 }

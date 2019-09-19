@@ -8,42 +8,61 @@ redux的流程分析
 ```
 import createStore form 'redux';
 const state = {number:1}
-const reducer = function(state,action){ //reducer函数可以理解为状态修改器
-必须通过dispath来触发状态的修改 而状态具体要修改什么，则由action来决定 第一个参数为初始状态
+const reducer = function(state,action){ 
+  //reducer函数可以理解为状态修改器
+  //必须通过dispath来触发状态的修改 
+  //而状态具体要修改什么，则由action来决定 第一个参数为初始状态
   switch (action.type){
     case 'add':
       const number = state.number++
-      return Object.assign({},state,{number})  //要引起状态改变必须返回一个完整的新的state对象 注意对象存在引用的问题
+      return Object.assign({},state,{number})  
+  //要引起状态改变必须返回一个完整的新的state对象 注意对象存在引用的问题
     default
       return
   }
 }
-const store = createStore(reducer);
-action //是一个对象，当中必须要存在的一个属性是type用来代表这个action，相当于是这个action的名字
-由于action可能会有多个，所以常见的用法是用一个函数构造action 方法如下
+
+// action 构造函数创建action
+function createAddAction(text){
+  return {
+    type:'add',
+    text
+  }
+}
+const store = createStore(reducer) 
+store.dispatch(createdAddAction('zhi')) // 通过dispath提交action
+store.subscribe(()=>{
+  let newState = store.getState();
+  component.setState(newState);
+})
+```
+## action
+`action`是一个对象，当中必须要存在的一个属性是type用来代表这个`action`，相当于是这个`action`的名字。由于`action`可能会有多个，所以常见的用法是用一个函数构造`action` 方法如下：
+```
 function createAction(type,text){
   return {
     type,
     text,
   }
 }
-const action = createAction('add','hello') // 创建了一个action
-store.dispatch({ //触发reducer函数 告诉它需要状态修改 并且把要修改的内容当成参数传入
+```
+
+## disPath
+```
+store.dispatch({ 
+  //触发reducer函数 告诉它需要状态修改 并且把要修改的内容当成参数传入
   type: 'ADD_TODO',
   payload: 'Learn Redux'
 });
-store.dispatch(createAction('add','aaa')) //是否可以通过这种方式来动态的创建action并提交修改
-store.subscribe(()=>{
-  let newState = store.getState();
-  component.setState(newState);
-})
 ```
 
-redux当中有2个必须要注意的点 1.action的函数化构造 2.reducer的拆分
+## redux重点
+1. action的函数化构造 
+2. reducer的拆分
 
 ### 如何实现reducer的拆分
 
-方法一：手动拆分
+方法一:手动拆分
 
 拆分前
 ```
@@ -151,9 +170,15 @@ const store = createStore(
 
 异步操作的基本思路：
 
-异步需要3个action,请求前发送一个action 请求成功后一个action 请求失败后触发一个action 一共3个，同步只需要一个。
+
+异步需要3个`action`,请求前发送一个`action`请求成功后一个`action`请求失败后触发一个`action`一共3个，同步只需要一个。
 
 - 使用redux-thunk中间件
 - 使用redux-promise中间件
 
-还是看[文档](http://www.ruanyifeng.com/blog/2016/09/redux_tutorial_part_two_async_operations.html)
+
+- 这里我们需要理解一下异步操作的发生场景?
+这里的异步操作主要是指我们在派发action的时候执行请求数据等操作。但是一般action都是一个对象如何进行异步操作呢?所以就要使用redux-thunk中间件来改造一下action，将它变成函数能够执行异步的发送请求的操作。
+
+
+[文档](http://www.ruanyifeng.com/blog/2016/09/redux_tutorial_part_two_async_operations.html)
