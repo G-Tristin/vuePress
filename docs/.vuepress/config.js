@@ -14,6 +14,7 @@ module.exports = {
 					{ text: 'html5', link: '/home/html5' },
 					{ text: 'polyfill', link: '/home/polyfill' },
 					{ text: 'webpack', link: '/home/webpack' },
+					{ text: 'eslint', link: '/home/eslint' },
 				]
 			},
 			{
