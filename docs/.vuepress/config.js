@@ -86,6 +86,14 @@ module.exports = {
 					{ text: '扩展全局变量', link: '/ts/扩展全局变量' },
 					{ text: '扩展模块变量', link: '/ts/扩展模块变量' },
 				]
+			},
+			{
+				text: 'linux',
+				items: [
+					{ text: '文件与目录管理', link: '/linux/文件与目录管理.md' },
+					{ text: 'grep', link: '/linux/grep.md' },
+					{ text: 'PATH', link: '/linux/PATH.md' },
+				]
 			}
 		],
 		sidebarDepth: 1,
