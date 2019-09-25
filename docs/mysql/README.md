@@ -1,9 +1,12 @@
-mySql 关系型数据库
+# mySql 关系型数据库
 
-1. BINARY 关键字  --- 查询语句中用于申明该语句查询字符串的时候区分大小写。
+## 如何使用mySql?
+使用GUI来操作mysql数据库
+1. 下载mysql客户端
+2. 登录mysql
+3. 建立连接(mySql服务器连接到mySql数据库)
 
-2. mySql事务
-
+## mySql关注点
 3. mySql索引
 mySQL索引建立的对于MySQL的高效运行时很重要的，索引可以大大提高mySql的检索速度。
 

@@ -1,8 +1,9 @@
 # nginx入门
 
+
 ## 启用、停止、重载配置
 
-运行可执行文件就可以开启ngInx,比如
+下载Nginx解压后运行可执行文件就可以开启ngInx服务器,比如
 
 ```
 nginx -c /user/local/nginx/conf/nginx.conf
@@ -13,7 +14,7 @@ nginx -c /user/local/nginx/conf/nginx.conf
 nginx -s signal
 ```
 
-signal可以时一下命令之一
+signal可以是  一下命令之一
  - stop 直接关闭nginx
  - quit 会在处理完当前的请求之后退出，也可以叫优雅的关闭
  - reload 重新加载配置文件，相当于重启
