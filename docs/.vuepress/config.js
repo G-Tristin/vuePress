@@ -66,6 +66,7 @@ module.exports = {
 					{ text: 'object', link: '/ES6/object' },
 					{ text: 'promise', link: '/ES6/promise' },
 					{ text: 'proxy', link: '/ES6/proxy' },
+					{ text: 'iterator', link: '/ES6/iterator' },
 				]
 			},
 			{
@@ -101,7 +102,7 @@ module.exports = {
 			'/guide/': ['', 'markdown'],
 			'/home/': ['', 'html5', 'css', 'javascript', 'gulp', 'webpack', 'polyfill', 'babel'],
 			'/vue/': ['', 'base', 'component', 'lib-flexible', 'vueLoad', 'Vue插件开发指北'],
-			'/ES6/': ['', 'object', 'es6class', 'es6class-extend', 'promise', 'proxy', '观察者模式(发布-订阅)', 'async', '对象的扩展', '数组的扩展'],
+			'/ES6/': ['', 'object', 'es6class', 'es6class-extend', 'promise', 'proxy', '观察者模式(发布-订阅)', 'async', '对象的扩展', '数组的扩展', 'iterator'],
 			'/node/': ['', 'buffer', 'process', 'childProcess', 'stream', 'commonjs', 'node基本模块', 'http服务', 'express', 'express静态资源处理', 'koa', 'npm'],
 			'/commander/': ['', 'option与action', 'publish'],
 			'/react/': ['', '受控组件', '状态提升与slot', 'redux.md'],
