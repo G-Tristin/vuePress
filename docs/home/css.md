@@ -315,7 +315,7 @@ p {
 ```
 
 ### @each
-`@each`指令的格式是`$var in <list>`,$var 可以是任意变量名，比如$length或者$name,而<list>是一连串的值，也就值列表。
+`@each`指令的格式是`$var in <list>`,$var 可以是任意变量名，比如$length或者$name,而`<list>`是一连串的值，也就值列表。
 @each将变量$var作用于值列表中的每一个项目，然后输出结果，如
 ```
 @each $animal in puma, sea-slug, egret, salamander {

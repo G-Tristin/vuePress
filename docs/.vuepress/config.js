@@ -6,15 +6,18 @@ module.exports = {
 			{
 				text: 'web',
 				items: [
-					{ text: 'js', link: '/home/javascript' },
-					{ text: 'css', link: '/home/css' },
+
 					{ text: 'babel', link: '/home/babel' },
 					{ text: 'context', link: '/home/context' },
+					{ text: 'css', link: '/home/css' },
+					{ text: 'js', link: '/home/javascript' },
+					{ text: 'eslint', link: '/home/eslint' },
 					{ text: 'gulp', link: '/home/gulp' },
 					{ text: 'html5', link: '/home/html5' },
+					{ text: 'javascript', link: '/home/javascript' },
+					{ text: 'js尾递归与柯里化', link: '/js尾递归与柯里化' },
 					{ text: 'polyfill', link: '/home/polyfill' },
 					{ text: 'webpack', link: '/home/webpack' },
-					{ text: 'eslint', link: '/home/eslint' },
 				]
 			},
 			{
@@ -23,6 +26,7 @@ module.exports = {
 					{ text: 'base', link: '/vue/base' },
 					{ text: 'component', link: '/vue/component' },
 					{ text: 'lib-flexible', link: '/vue/lib-flexible' },
+					{ text: 'Vue插件开发指北', link: '/vue/Vue插件开发指北' },
 					{ text: 'vueload', link: '/vue/vueload' },
 				]
 			},
@@ -62,11 +66,13 @@ module.exports = {
 					{ text: '观察者模式', link: '/ES6/观察者模式(发布-订阅)' },
 					{ text: '数组的扩展', link: '/ES6/数组的扩展' },
 					{ text: 'async', link: '/ES6/async' },
-					{ text: 'es6class', link: '/ES6/es6class-extend' },
+					{ text: 'es6class', link: '/ES6/es6class' },
+					{ text: 'es6class-extend', link: '/ES6/es6class-extend' },
+					{ text: 'generator', link: '/ES6/generator' },
+					{ text: 'iterator', link: '/ES6/iterator' },
 					{ text: 'object', link: '/ES6/object' },
 					{ text: 'promise', link: '/ES6/promise' },
 					{ text: 'proxy', link: '/ES6/proxy' },
-					{ text: 'iterator', link: '/ES6/iterator' },
 				]
 			},
 			{
@@ -81,11 +87,12 @@ module.exports = {
 				text: 'TS',
 				items: [
 					{ text: '简介', link: '/ts/README.md' },
+					{ text: '扩展模块变量', link: '/ts/扩展模块变量' },
+					{ text: '扩展全局变量', link: '/ts/扩展全局变量' },
 					{ text: '声明全局变量', link: '/ts/声明全局变量' },
+					{ text: 'interface与type', link: '/ts/interface和type' },
 					{ text: 'npm', link: '/ts/npm' },
 					{ text: 'umd', link: '/ts/umd' },
-					{ text: '扩展全局变量', link: '/ts/扩展全局变量' },
-					{ text: '扩展模块变量', link: '/ts/扩展模块变量' },
 				]
 			},
 			{
@@ -93,6 +100,7 @@ module.exports = {
 				items: [
 					{ text: '文件与目录管理', link: '/linux/文件与目录管理.md' },
 					{ text: 'grep', link: '/linux/grep.md' },
+					{ text: 'ls', link: 'linux/ls.md' },
 					{ text: 'PATH', link: '/linux/PATH.md' },
 				]
 			}
@@ -102,11 +110,12 @@ module.exports = {
 			'/guide/': ['', 'markdown'],
 			'/home/': ['', 'html5', 'css', 'javascript', 'gulp', 'webpack', 'polyfill', 'babel'],
 			'/vue/': ['', 'base', 'component', 'lib-flexible', 'vueLoad', 'Vue插件开发指北'],
-			'/ES6/': ['', 'object', 'es6class', 'es6class-extend', 'promise', 'proxy', '观察者模式(发布-订阅)', 'async', '对象的扩展', '数组的扩展', 'iterator'],
+			'/ES6/': ['', '对象的扩展', '观察者模式(发布-订阅)', '数组的扩展', 'async', 'es6class-extend', 'es6class', 'generator', 'iterator', 'object', 'promise', 'proxy',],
 			'/node/': ['', 'buffer', 'process', 'childProcess', 'stream', 'commonjs', 'node基本模块', 'http服务', 'express', 'express静态资源处理', 'koa', 'npm'],
 			'/commander/': ['', 'option与action', 'publish'],
 			'/react/': ['', '受控组件', '状态提升与slot', 'redux.md'],
-			'/ts/': ['', '声明全局变量', 'npm', 'umd', '扩展全局变量', '扩展模块变量']
+			'/ts/': ['', '扩展模块变量', '扩展全局变量', '声明全局变量', 'npm', 'umd',],
+			'/linux': ['文件与目录管理', 'grep-send-awk', 'ls', 'PATH']
 		}
 	}
 }
