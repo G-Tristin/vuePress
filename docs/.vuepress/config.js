@@ -15,7 +15,7 @@ module.exports = {
 					{ text: 'gulp', link: '/home/gulp' },
 					{ text: 'html5', link: '/home/html5' },
 					{ text: 'javascript', link: '/home/javascript' },
-					{ text: 'js尾递归与柯里化', link: '/js尾递归与柯里化' },
+					{ text: 'js尾递归与柯里化', link: '/home/js尾递归与柯里化' },
 					{ text: 'polyfill', link: '/home/polyfill' },
 					{ text: 'webpack', link: '/home/webpack' },
 				]
