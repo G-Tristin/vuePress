@@ -88,3 +88,17 @@ koa为了能够简化API，引入了上下文的概念，将原始请求对象re
 ctx.cookies.set('name','tobi',{signed:true})
 ```
 `signed = false` 时，app.keys可以不赋值。如果`signed: true`时，则需要对`app.keys`赋值，否则会报错。作用是将cookie的内容通过密钥进行加密，在check登录时，保证cookie内容未被修改，如果被修改了，则校验登录失败。
+
+## app.context
+我们可以通过编辑app.context为ctx添加其他属性。这对于将ctx添加到整个应用程序中使用的属性和方法非常有用，这个相对于中间件可能会更加有效和简单。我们可以试用它来添加对数据库的引用。
+```
+app.context.db = db()
+app.use(async ctx => {
+  console.log(ctx.db)
+})
+```
+
+## koa2上下文(Context)
+koa context将node的request和response对象封装到单个对象中，为编写web应用程序和API提供了许多有用的方法。
+
+上面这段话的意思就是所有的request与response方法都被挂载到ctx上，并且它会自动区分哪些是request下的方法，哪些是response下的方法。
