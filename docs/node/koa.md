@@ -1,7 +1,7 @@
-# koa
+# koa2
 koa是一个node框架用于构建一个本地的node服务器
 
-## 使用koa创建服务器
+## 使用koa2创建服务器
 - 引入一个koa模块
 - 创建一个koa实例对象
 - 使用koa中间件
@@ -19,7 +19,7 @@ app.use((ctx,next)=>{
 app.listen(8080)
 ```
 
-## koa middleWare
+## koa2 middleWare
 
 使用app.use()使用中间件
 ```
@@ -31,7 +31,7 @@ app.use(async (ctx,next)=>{
 ```
 每接收到一个http请求,koa就会通过app.use()注册的async函数,并传入ctx和next参数
 
-## koa的执行顺序
+## koa2的执行顺序
 
 如果app.use()当中的回调函数是一个异步函数(async)那么如果我们使用了await next(),那么回到函数当中的其他代码就要等到下一个app.use()中的函数执行完成之后再执行
 
@@ -67,7 +67,7 @@ app.listen(8000)
 console.log('开启服务器')
 ```
 
-## koa原理讲解
+## koa2原理讲解
 
 1.koa的中间件机制:
 
@@ -79,3 +79,12 @@ koa为了能够简化API，引入了上下文的概念，将原始请求对象re
 
 
 浏览器会默认发送ico请求以获取浏览器图标 所以我们需要对这一部分进行处理
+
+## koa2之app.keys
+
+设置Cookie的密钥，其实质就是给cookie加密
+当我们通过服务器给浏览器设置cookie时，可以通过设置参数`signed:true`来给cookie加密
+```
+ctx.cookies.set('name','tobi',{signed:true})
+```
+`signed = false` 时，app.keys可以不赋值。如果`signed: true`时，则需要对`app.keys`赋值，否则会报错。作用是将cookie的内容通过密钥进行加密，在check登录时，保证cookie内容未被修改，如果被修改了，则校验登录失败。
