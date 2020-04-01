@@ -6,7 +6,6 @@ module.exports = {
 			{
 				text: 'web',
 				items: [
-
 					{ text: 'babel', link: '/home/babel' },
 					{ text: 'context', link: '/home/context' },
 					{ text: 'css', link: '/home/css' },
@@ -108,7 +107,7 @@ module.exports = {
 		sidebarDepth: 1,
 		sidebar: {
 			'/guide/': ['', 'markdown'],
-			'/home/': ['', 'html5', 'css', 'javascript', 'gulp', 'webpack', 'polyfill', 'babel'],
+			'/home/': ['', 'html5', 'css', 'javascript', 'gulp', 'webpack', 'polyfill', 'babel','webview'],
 			'/vue/': ['', 'base', 'component', 'lib-flexible', 'vueLoad', 'Vue插件开发指北'],
 			'/ES6/': ['', '对象的扩展', '观察者模式(发布-订阅)', '数组的扩展', 'async', 'es6class-extend', 'es6class', 'generator', 'iterator', 'object', 'promise', 'proxy',],
 			'/node/': ['', 'buffer', 'process', 'childProcess', 'stream', 'commonjs', 'node基本模块', 'http服务', 'express', 'express静态资源处理', 'koa', 'npm'],
