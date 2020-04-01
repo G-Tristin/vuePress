@@ -17,6 +17,7 @@ module.exports = {
 					{ text: 'js尾递归与柯里化', link: '/home/js尾递归与柯里化' },
 					{ text: 'polyfill', link: '/home/polyfill' },
 					{ text: 'webpack', link: '/home/webpack' },
+					{ text: 'webview', link: '/home/webview' },
 				]
 			},
 			{
